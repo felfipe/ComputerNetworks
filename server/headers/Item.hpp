@@ -1,11 +1,19 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-class Item{
-    int ID;
+class Item {
+   private:
+    int id;
     string name;
     string description;
-    Attribute attribs;
+    Attribute* attribs;
+
+   public:
+    Item(string name);
+    int getId();
+    string getName();
+    string getDescription();
+    Attribute* getAttribs();
 };
 
 #endif
