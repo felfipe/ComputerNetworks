@@ -3,8 +3,13 @@
 
 class Player {
    private:
+    string name;
+    Champion* champion;
+
    public:
-    Player();
+    Player(string name, Champion* champion);
+    void getDamage();
+    void setDamage();
 };
 
 #endif

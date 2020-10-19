@@ -1,14 +1,17 @@
 #ifndef CHAMPION_H
 #define CHAMPION_H
 
-class Champion{
-private:
+class Champion {
+   private:
     string name;
     Attribute* attribs;
     string type;
-public:
+
+   public:
     Champion(string name);
+    string getName();
     string getType();
+    Attribute* getAttribs();
 };
 
 #endif
