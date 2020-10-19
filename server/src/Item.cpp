@@ -2,20 +2,22 @@
 #include <Globals.hpp>
 #include <Item.hpp>
 
-int INFINITY_EDGE[7] = {0, 0, 0, 0, 0, 0, 0};
-int RABBADONS_DEATH_CAP[7] = {0, 0, 0, 0, 0, 0, 0};
-int THORNMAIL[7] = {0, 0, 0, 0, 0, 0, 0};
-int SPIRITY_VISAGE[7] = {0, 0, 0, 0, 0, 0, 0};
-int WARMOGS_ARMOR[7] = {0, 0, 0, 0, 0, 0, 0};
-int SERAPH_EMBRACE[7] = {0, 0, 0, 0, 0, 0, 0};
-int BOOTS_SWIFTNESS[7] = {0, 0, 0, 0, 0, 0, 0};
-int ADAPTIVE_HELM[7] = {0, 0, 0, 0, 0, 0, 0};
-int BLADE_RUINED_KING[7] = {0, 0, 0, 0, 0, 0, 0};
-int BLACK_CLEAVER[7] = {0, 0, 0, 0, 0, 0, 0};
-int LIANDRY_TORNENT[7] = {0, 0, 0, 0, 0, 0, 0};
-int BANSHEE_VEIL[7] = {0, 0, 0, 0, 0, 0, 0};
-int RUNAANS_HURRICANE[7] = {0, 0, 0, 0, 0, 0, 0};
-int TRINITY_FORCE[7] = {0, 0, 0, 0, 0, 0, 0};
+// Regen de mana no auto ataque
+// Implementar queimação de skills (dano de skills durante turnos)
+int INFINITY_EDGE[7] = {0, 0, 0, 0, 0, 0, 0};        // Buff no ataque basico -> 1.x * AD
+int RABBADONS_DEATH_CAP[7] = {0, 0, 0, 0, 0, 0, 0};  // Buff nas skills -> 1.x * AP
+int THORNMAIL[7] = {0, 0, 0, 0, 0, 0, 0};            // Buff -> Devolver 0.x do dano de ataques basicos recebido
+int SPIRITY_VISAGE[7] = {0, 0, 0, 0, 0, 0, 0};       // Buff -> Aumenta cura em 1.x
+int WARMOGS_ARMOR[7] = {0, 0, 0, 0, 0, 0, 0};        // Buff -> Regenera 0.x da vida por turno
+int SERAPH_EMBRACE[7] = {0, 0, 0, 0, 0, 0, 0};       // Buff -> Reduz o casting de mana no uso de habilidades
+int BOOTS_SWIFTNESS[7] = {0, 0, 0, 0, 0, 0, 0};      // Buff -> Chance de dodge em 0.x
+int BLADE_RUINED_KING[7] = {0, 0, 0, 0, 0, 0, 0};    // Buff -> Dano baseado na vida maxima do alvo
+int BLACK_CLEAVER[7] = {0, 0, 0, 0, 0, 0, 0};        // Buff -> Ignora 0.x da armadura do alvo
+int LIANDRY_TORNENT[7] = {0, 0, 0, 0, 0, 0, 0};      // Buff -> Causa queimação nas skills baseado na vida maxima
+int BANSHEE_VEIL[7] = {0, 0, 0, 0, 0, 0, 0};         // Buff -> Limpa os efeitos negativos a cada x turnos
+int RUNAANS_HURRICANE[7] = {0, 0, 0, 0, 0, 0, 0};    // Buff -> Ataque basico da dano em area em 0.x do AD
+int TRINITY_FORCE[7] = {0, 0, 0, 0, 0, 0, 0};        // Buff -> Ataques basicos em turnos pares dao 1.x do AD
+int REDEMPTION[7] = {0, 0, 0, 0, 0, 0, 0};           // Buff -> Cura todos aliados em 0.x do AP a cada x turnos
 
 Item::Item(string name) {
     if (name == "Infinity Edge") {
@@ -91,13 +93,13 @@ Item::Item(string name) {
     } else if (name == "Adaptive Helm") {
         this->id = 8;
         this->attribs = new Attribute(
-            ADAPTIVE_HELM[0],
-            ADAPTIVE_HELM[1],
-            ADAPTIVE_HELM[2],
-            ADAPTIVE_HELM[3],
-            ADAPTIVE_HELM[4],
-            ADAPTIVE_HELM[5],
-            ADAPTIVE_HELM[6]);
+            REDEMPTION[0],
+            REDEMPTION[1],
+            REDEMPTION[2],
+            REDEMPTION[3],
+            REDEMPTION[4],
+            REDEMPTION[5],
+            REDEMPTION[6]);
     } else if (name == "Blade Ruined King") {
         this->id = 9;
         this->attribs = new Attribute(
