@@ -11,6 +11,10 @@ class Spell {
     /* data */
    public:
     Spell(string name, string effect, int manaCost, int value);
+    string getName();
+    string getEffect();
+    int getManaCost();
+    int getValue();
 };
 
 #endif
