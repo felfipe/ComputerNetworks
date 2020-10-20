@@ -1,7 +1,11 @@
 #include <headers/Globals.hpp>
 
 #define BASICATTACKMULTIPLIER 2
-Player::Player(string name, Champion *champion) {
+Player::Player(string nickname, int championId, int item1, int item2) {
+    this->nickname = nickname;
+    this->champion = new Champion(championId);
+    this->champion->setItem(item1);
+    this->champion->setItem(item2);
 }
 
 void Player::setDamage(vector<Champion *> champions, int action, int target) {

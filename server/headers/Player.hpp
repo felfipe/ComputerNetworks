@@ -3,11 +3,11 @@
 
 class Player {
    private:
-    string name;
+    string nickname;
     Champion* champion;
 
    public:
-    Player(string name, Champion* champion);
+    Player(string nickname, int champion, int item1, int item2);
     Champion* getChampion();
     void setDamage(vector<Champion*> champions, int action, int target);
 };
