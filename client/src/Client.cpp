@@ -55,7 +55,7 @@ Client::Client(string address, int port) {
 }
 
 void Client::setUpClient(char* nickname, int championId, int* item) {
-    send(this->socketFd, nickname, sizeof(nickname), 0);
+    send(this->socketFd, nickname, strlen(nickname), 0);
     send(this->socketFd, &championId, sizeof(int), 0);
     send(this->socketFd, &item, 2 * sizeof(int), 0);
 }

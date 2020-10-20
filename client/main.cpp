@@ -94,6 +94,7 @@ int main() {
     for (int i = 0; i < items.size(); i++) {
         arrItem[i] = items[i];
     }
+
     client->setUpClient(nickname, championId, arrItem);
 
     return 0;
