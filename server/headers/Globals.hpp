@@ -77,4 +77,11 @@ struct instruction {
     int target;
 };
 
+struct moviment {
+    int type;
+    int value;
+    bool areaEffect;
+    set<string> effects;
+};
+
 #endif
