@@ -13,7 +13,7 @@ class Player {
    public:
     Player(string nickname, int socket, int champion, int item1, int item2);
     Champion* getChampion();
-    void setDamage(vector<Champion*> champions, int action, int target, int turn);
+    struct moviment setDamage(int action, int turn);
     std::string getNickname();
     int getSocket();
 };
