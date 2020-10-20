@@ -116,24 +116,24 @@ Spell::Spell(int champion, int spell) {
                     break;
             }
             break;
-        case LUX:
+        case LULU:
             switch (spell) {
                 case SPELL_Q:
-                    this->manaCost = SPELLS[LUX][SPELL_Q][0];
-                    this->type = SPELLS[LUX][SPELL_Q][1];
-                    this->value = SPELLS[LUX][SPELL_Q][2];
+                    this->manaCost = SPELLS[LULU][SPELL_Q][0];
+                    this->type = SPELLS[LULU][SPELL_Q][1];
+                    this->value = SPELLS[LULU][SPELL_Q][2];
                 case SPELL_W:
-                    this->manaCost = SPELLS[LUX][SPELL_W][0];
-                    this->type = SPELLS[LUX][SPELL_W][1];
-                    this->value = SPELLS[LUX][SPELL_W][2];
+                    this->manaCost = SPELLS[LULU][SPELL_W][0];
+                    this->type = SPELLS[LULU][SPELL_W][1];
+                    this->value = SPELLS[LULU][SPELL_W][2];
                 case SPELL_E:
-                    this->manaCost = SPELLS[LUX][SPELL_E][0];
-                    this->type = SPELLS[LUX][SPELL_E][1];
-                    this->value = SPELLS[LUX][SPELL_E][2];
+                    this->manaCost = SPELLS[LULU][SPELL_E][0];
+                    this->type = SPELLS[LULU][SPELL_E][1];
+                    this->value = SPELLS[LULU][SPELL_E][2];
                 case SPELL_R:
-                    this->manaCost = SPELLS[LUX][SPELL_R][0];
-                    this->type = SPELLS[LUX][SPELL_R][1];
-                    this->value = SPELLS[LUX][SPELL_R][2];
+                    this->manaCost = SPELLS[LULU][SPELL_R][0];
+                    this->type = SPELLS[LULU][SPELL_R][1];
+                    this->value = SPELLS[LULU][SPELL_R][2];
                     break;
             }
             break;
@@ -158,24 +158,24 @@ Spell::Spell(int champion, int spell) {
                     break;
             }
             break;
-        case VAYNE:
+        case TALON:
             switch (spell) {
                 case SPELL_Q:
-                    this->manaCost = SPELLS[VAYNE][SPELL_Q][0];
-                    this->type = SPELLS[VAYNE][SPELL_Q][1];
-                    this->value = SPELLS[VAYNE][SPELL_Q][2];
+                    this->manaCost = SPELLS[TALON][SPELL_Q][0];
+                    this->type = SPELLS[TALON][SPELL_Q][1];
+                    this->value = SPELLS[TALON][SPELL_Q][2];
                 case SPELL_W:
-                    this->manaCost = SPELLS[VAYNE][SPELL_W][0];
-                    this->type = SPELLS[VAYNE][SPELL_W][1];
-                    this->value = SPELLS[VAYNE][SPELL_W][2];
+                    this->manaCost = SPELLS[TALON][SPELL_W][0];
+                    this->type = SPELLS[TALON][SPELL_W][1];
+                    this->value = SPELLS[TALON][SPELL_W][2];
                 case SPELL_E:
-                    this->manaCost = SPELLS[VAYNE][SPELL_E][0];
-                    this->type = SPELLS[VAYNE][SPELL_E][1];
-                    this->value = SPELLS[VAYNE][SPELL_E][2];
+                    this->manaCost = SPELLS[TALON][SPELL_E][0];
+                    this->type = SPELLS[TALON][SPELL_E][1];
+                    this->value = SPELLS[TALON][SPELL_E][2];
                 case SPELL_R:
-                    this->manaCost = SPELLS[VAYNE][SPELL_R][0];
-                    this->type = SPELLS[VAYNE][SPELL_R][1];
-                    this->value = SPELLS[VAYNE][SPELL_R][2];
+                    this->manaCost = SPELLS[TALON][SPELL_R][0];
+                    this->type = SPELLS[TALON][SPELL_R][1];
+                    this->value = SPELLS[TALON][SPELL_R][2];
                     break;
             }
             break;

@@ -12,7 +12,7 @@ int selectChampion() {
     cout << "| 1 | Darius | Bruiser             |" << endl;
     cout << "| 2 | Lulu   | Support             |" << endl;
     cout << "| 3 | Ryze   | Control Mage        |" << endl;
-    cout << "| 4 | Aahe   | Attack Damage Carry |" << endl;
+    cout << "| 4 | Ashe   | Attack Damage Carry |" << endl;
     cout << "| 5 | Talon  | Assassin            |" << endl;
     cout << "|----------------------------------|" << endl;
     cout << "| Select your Champion: ";

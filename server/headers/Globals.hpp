@@ -13,10 +13,10 @@ using namespace std;
 // Champions
 #define GAREN 0
 #define DARIUS 1
-#define LUX 2
+#define LULU 2
 #define RYZE 3
 #define ASHE 4
-#define VAYNE 5
+#define TALON 5
 
 // Actions
 #define SKIP -2
