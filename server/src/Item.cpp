@@ -159,40 +159,46 @@ void Item::applyItem(int value, int mana, set<string> effects, bool area, int tu
     int manaR = mana;
     bool areaR = areaR;
     set<string> effectsR = effects;
-    if (name == "Infinity Edge") {
-        if (turn % 2 == 0) {
-            valueR = valueR * BUFF_TF;
-        }
-    } else if (name == "Rabbadons") {
-        valueR = valueR * BUFF_RABBADODON;
-    } else if (name == "Thornmail") {
-        valueR = valueR * BUFF_THORNMAIL;
-    } else if (name == "Spirity Visage") {
-        valueR = valueR * BUFF_SV;
-    } else if (name == "Warmogs") {
-        valueR = BUFF_WARMOG;
-    } else if (name == "Seraph Embrace") {
-        manaR = manaR * BUFF_SERAPH;
-    } else if (name == "Boots") {
-        int r = rand() % 100 + 1;
-        if (r <= 20) {
-            valueR = 0;
-        }
-    } else if (name == "Redemption") {
-        if (turn % 5 == 0) {
-            valueR = valueR * BUFF_REDEMPTION;
-        }
-    } else if (name == "Blade Ruined King") {
-        valueR = valueR * (1 + BUFF_RK * turn);
-    } else if (name == "Black Cleaver") {  //Aposentado
-        if (turn % 10 == 0) {
-            valueR = valueR * 10;
-        }
-    } else if (name == "Liandry") {
-        effectsR.insert("burn");
-    } else if (name == "Banshee") {
-        effectsR.clear();
-    } else if (name == "Runaans") {
-        bool areaR = true;
+    switch (this->id) {
+        case INFINITY_EDGE:
+            if (turn % 2 == 0) valueR *= BUFF_TF;
+            break;
+        case RABBADONS_DEATH_CAP:
+            valueR *= BUFF_RABBADODON;
+            break;
+        case THORNMAIL:
+            valueR *= BUFF_THORNMAIL;
+            break;
+        case SPIRITY_VISAGE:
+            valueR *= BUFF_SV;
+            break;
+        case WARMOGS_ARMOR:
+            valueR = BUFF_WARMOG;
+            break;
+        case SERAPH_EMBRACE:
+            manaR *= BUFF_SERAPH;
+            break;
+        case BOOTS_SWIFTNESS:
+            int r = rand() % 100 + 1;
+            if (r <= 20) valueR = 0;
+            break;
+        case REDEMPTION:
+            if (turn % 5 == 0) valueR *= BUFF_REDEMPTION;
+            break;
+        case BLADE_RUINED_KING:
+            valueR *= (1 + BUFF_RK * turn);
+            break;
+        case BLACK_CLEAVER:
+            if (turn % 10 == 0) valueR *= 10;
+            break;
+        case LIANDRY_TORNENT:
+            effectsR.insert("burn");
+            break;
+        case BANSHEE_VEIL:
+            effectsR.clear();
+            break;
+        case RUNAANS_HURRICANE:
+            bool areaR = true;
+            break;
     }
 }
