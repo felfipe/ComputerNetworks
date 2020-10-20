@@ -23,7 +23,8 @@ void Player::setDamage(vector<Champion *> champions, int action, int target, int
     if (action == AA) {
         value = BASICATTACKMULTIPLIER * this->champion->getAttribs()->getAttackDamage();
         itemType = ITEM_AUTO_ATTACK;
-        //Aplicar efeito dos items de atack basico
+        this->champion->getAttribs()->setMana(this->champion->getAttribs()->getMana() + this->champion->getAttribs()->getRegenMana());
+        this->champion->applyItems(itemType, mana, value, effects, areaEffect, turn);
 
         //montar o pacote de dano
         return;
@@ -39,6 +40,11 @@ void Player::setDamage(vector<Champion *> champions, int action, int target, int
         }
         this->champion->applyItems(itemType, mana, value, effects, areaEffect, turn);  //ajustar para ponteiros o correto
         //agora os valores de value, effects e area Effect ja estão basta causa esse dano ao target ou aos targets
+        if (this->champion->getAttribs()->getMana() <= mana) {
+            //not enought mana
+            return
+        }
+        //termina o ataque
     }
 }
 
