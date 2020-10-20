@@ -1,6 +1,5 @@
-#include <Champion.hpp>
-#include <Globals.hpp>
-#include <Player.hpp>
+#include <headers/Globals.hpp>
+
 #define BASICATTACKMULTIPLIER 2
 Player::Player(string name, Champion *champion) {
 }

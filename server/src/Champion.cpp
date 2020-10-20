@@ -1,6 +1,4 @@
-#include <Attribute.hpp>
-#include <Champion.hpp>
-#include <Globals.hpp>
+#include <headers/Globals.hpp>
 
 int GAREN[7] = {0, 0, 0, 0, 0, 0, 0};
 int DARIUS[7] = {0, 0, 0, 0, 0, 0, 0};
@@ -67,4 +65,7 @@ string Champion::getName() {
 
 Attribute* Champion::getAttribs() {
     return this->attribs;
+}
+
+vector<Item> Champion::getItem() {
 }

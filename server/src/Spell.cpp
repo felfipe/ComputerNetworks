@@ -1,5 +1,4 @@
-#include <Globals.hpp>
-#include <Spell.hpp>
+#include <headers/Globals.hpp>
 
 string Spell::getName() {
     return this->name;

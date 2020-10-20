@@ -1,5 +1,4 @@
-#include <Attribute.hpp>
-#include <Globals.hpp>
+#include <headers/Globals.hpp>
 
 Attribute::Attribute(int attackDamage, int abilityPower, int armor, int magicResist, int life, int mana, int speed) {
     this->abilityPower = abilityPower;

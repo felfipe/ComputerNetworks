@@ -1,6 +1,4 @@
-#include <Attribute.hpp>
-#include <Globals.hpp>
-#include <Item.hpp>
+#include <headers/Globals.hpp>
 
 // Regen de mana no auto ataque
 // Implementar queimação de skills (dano de skills durante turnos)
