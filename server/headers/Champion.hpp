@@ -8,6 +8,7 @@
 
 class Champion {
    private:
+    int id;
     string name;
     Attribute* attribs;
     int type;
@@ -17,6 +18,7 @@ class Champion {
 
    public:
     Champion(int champion);
+    int getId();
     string getName();
     int getType();
     vector<Item*> getItem();

@@ -19,6 +19,7 @@ int ITEMS[14][7] = {
     {0, 0, 0, 0, 0, 0, 0}};
 
 Item::Item(int itemId) {
+    this->id = itemId;
     switch (itemId) {
         case INFINITY_EDGE:
             this->name = "Infinity Edge";

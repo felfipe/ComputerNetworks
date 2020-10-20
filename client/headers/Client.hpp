@@ -19,6 +19,7 @@ class Client {
     std::thread th_socket_listener;
     std::thread th_socket_sender;
     void setUpClient();
+    void receivePlayers();
 
    private:
     /*static void* connection_sender(void* clientFd);

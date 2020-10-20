@@ -1,8 +1,9 @@
 #include "../headers/Player.hpp"
 
 #define BASICATTACKMULTIPLIER 2
-Player::Player(string nickname, int championId, int item1, int item2) {
+Player::Player(string nickname, int socket, int championId, int item1, int item2) {
     this->nickname = nickname;
+    this->socket = socket;
     this->champion = new Champion(championId);
     this->champion->setItem(item1);
     this->champion->setItem(item2);
@@ -46,4 +47,7 @@ Champion *Player::getChampion() {
 }
 std::string Player::getNickname() {
     return this->nickname;
+}
+int Player::getSocket() {
+    return this->socket;
 }

@@ -16,12 +16,12 @@
 class Server {
    public:
     int socketFd;
-    int socket_client[MAX_CONNECTIONS];
 
     Server(int port, int number_players);
     void listenForClients();
     void closeConnection();
     void setUpPlayer(int socket_client, int cli_id);
+    void sendPlayers();
     int sendMessageBroadcast(int socket_client, char* message);
     int sendMessage(int socket_client, char* message);
 

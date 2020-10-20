@@ -10,6 +10,7 @@ int CHAMPION[6][7] = {
     {0, 0, 0, 0, 0, 0, 0}};
 
 Champion::Champion(int champion) {
+    this->id = champion;
     switch (champion) {
         case GAREN:
             this->name = "Garen";
@@ -91,7 +92,9 @@ Champion::Champion(int champion) {
             break;
     }
 }
-
+int Champion::getId() {
+    return this->id;
+}
 int Champion::getType() {
     return this->type;
 }
