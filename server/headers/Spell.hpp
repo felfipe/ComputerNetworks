@@ -10,7 +10,7 @@ class Spell {
     int manaCost;
 
    public:
-    Spell();
+    Spell(int champion, int spell);
     string getName();
     string getType();
     string getEffect();

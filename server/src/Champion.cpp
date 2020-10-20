@@ -67,8 +67,6 @@ Attribute* Champion::getAttribs() {
     return this->attribs;
 }
 
-vector<Item> Champion::getItem() {
-}
 void Champion::getDamage(int value, vector<string> effects) {
     int damage = value;
     //metodo para aplicador efeito dos itens de DEFESA e alterar o value
@@ -78,4 +76,11 @@ void Champion::getDamage(int value, vector<string> effects) {
 void Champion::getHealed(int heal) {
     //aplicar os efeitos de items de HEAL
     this->getAttribs()->setLife(this->getAttribs()->getLife() + heal);
+}
+vector<Item> Champion::getItem() {
+    return this->item;
+}
+
+Spell Champion::getSpell(int idx) {
+    return this->spell[idx];
 }

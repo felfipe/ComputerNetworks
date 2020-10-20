@@ -8,6 +8,7 @@ class Champion {
     string type;
     vector<Item> item;
     vector<string> effects;
+    Spell spell[4];
 
    public:
     Champion(string name);
@@ -18,7 +19,9 @@ class Champion {
     Attribute* getAttribs();
     void getDamage(int value, vector<string> effects);
     void getHealed(int heal);
-    void setEffects(vector<string> effects)
+    void setEffects(vector<string> effects);
+    Attribute* getAttribs();
+    Spell getSpell(int idx);
 };
 
 #endif
