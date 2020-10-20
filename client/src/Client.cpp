@@ -61,11 +61,7 @@ void Client::setUpClient(char* nickname, int championId, int* item) {
     cout << "item1 " << item[0] << endl;
     cout << "item2 " << item[1] << endl;
 
-<<<<<<< HEAD
-    send(this->socketFd, nickname, 20, 0);
-=======
     send(this->socketFd, nickname, MAX_NICKNAME, 0);
->>>>>>> 5f8bacafa41ea0e585827cbe51125662508e1c23
     send(this->socketFd, &championId, sizeof(int), 0);
     send(this->socketFd, item, 2 * sizeof(int), 0);
 }
