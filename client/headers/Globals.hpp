@@ -50,5 +50,13 @@ using namespace std;
 #define MAX_ITEMS 2
 #define MAX_NICKNAME 20
 #define MAX_PLAYERS 4
-
+struct status {
+    int habilityPower;
+    int atackDamage;
+    int life;
+    int mana;
+    int armor;
+    int medicResist;
+    int your_turn;
+};
 #endif

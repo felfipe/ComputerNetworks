@@ -77,11 +77,19 @@ struct instruction {
     int target;
 };
 
+struct status {
+    int habilityPower;
+    int atackDamage;
+    int life;
+    int mana;
+    int armor;
+    int medicResist;
+    int your_turn;
+};
 struct moviment {
     int type;
     int value;
     bool areaEffect;
     set<string> effects;
 };
-
 #endif

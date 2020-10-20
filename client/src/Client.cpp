@@ -86,3 +86,16 @@ void Client::receivePlayers() {
 vector<Player*> Client::getPlayerslist() {
     return this->playerList;
 }
+
+void Client::sendInstruction(int instruction, int target) {
+    send(this->socketFd, &instruction, sizeof(int), 0);
+    send(this->socketFd, &target, sizeof(int), 0);
+    return;
+}
+void Client::waitForServer() {
+    struct status status;
+    for (int i = 0; i < 4; i++) {
+        recv(this->socketFd, &status, sizeof(status), 0);
+        std::cout << status.life << status.armor << status.atackDamage << status.habilityPower << status.medicResist << status.your_turn;  // pega os status
+    }
+}
