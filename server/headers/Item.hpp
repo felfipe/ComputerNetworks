@@ -9,7 +9,7 @@ class Item {
     int id;
     string name;
     string description;
-    Attribute* attribs;
+    Attribute *attribs;
     int type;
 
    public:
@@ -17,9 +17,9 @@ class Item {
     int getId();
     string getName();
     string getDescription();
-    Attribute* getAttribs();
+    Attribute *getAttribs();
     int getType();
-    void applyItem(int value, int mana, set<string> effects, bool area, int turn);
+    void applyItem(int &value, int &mana, set<string> &effects, bool &area, int turn);
 };
 
 #endif
