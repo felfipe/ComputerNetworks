@@ -89,21 +89,21 @@ void Server::closeConnection() {
 }
 
 void Server::sendPlayers() {
-    char name[256];
+    char name[20];
     int item[2];
     int champion;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            memset(name, '\0', 256);
+            memset(name, '\0', 20);
             strcpy(name, player[j]->getNickname().c_str());
             champion = player[j]->getChampion()->getId();
             item[0] = player[j]->getChampion()->getItem()[0]->getId();
             item[1] = player[j]->getChampion()->getItem()[1]->getId();
             std::cout << name << champion << item[0] << item[1];
             send(player[i]->getSocket(), &i, sizeof(int), 0);
-            send(player[i]->getSocket(), &name, strlen(name), 0);
+            send(player[i]->getSocket(), &name, 20, 0);
             send(player[i]->getSocket(), &champion, sizeof(int), 0);
-            send(player[i]->getSocket(), &item, 2 * sizeof(int), 0);
+            send(player[i]->getSocket(), item, 2 * sizeof(int), 0);
         }
     }
 }
