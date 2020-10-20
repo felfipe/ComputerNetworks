@@ -7,13 +7,15 @@ class Champion {
     Attribute* attribs;
     string type;
     vector<Item> item;
+    Spell spell[4];
 
    public:
     Champion(string name);
     string getName();
     string getType();
-    vector<Item> getItem();
+    vector<Item> getItems();
     Attribute* getAttribs();
+    Spell getSpell(int idx);
 };
 
 #endif

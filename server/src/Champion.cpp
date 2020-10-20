@@ -67,5 +67,10 @@ Attribute* Champion::getAttribs() {
     return this->attribs;
 }
 
-vector<Item> Champion::getItem() {
+vector<Item> Champion::getItems() {
+    return this->item;
+}
+
+Spell Champion::getSpell(int idx) {
+    return this->spell[idx];
 }
