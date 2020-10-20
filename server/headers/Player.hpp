@@ -13,6 +13,7 @@ class Player {
     Player(string nickname, int champion, int item1, int item2);
     Champion* getChampion();
     void setDamage(vector<Champion*> champions, int action, int target, int turn);
+    std::string getNickname();
 };
 
 #endif

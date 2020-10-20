@@ -44,3 +44,6 @@ void Player::setDamage(vector<Champion *> champions, int action, int target, int
 Champion *Player::getChampion() {
     return this->champion;
 }
+std::string Player::getNickname() {
+    return this->nickname;
+}

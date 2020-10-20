@@ -21,8 +21,9 @@ class Client {
     void setUpClient();
 
    private:
-    static void* connection_sender(void* clientFd);
+    /*static void* connection_sender(void* clientFd);
     static void* connection_listener(void* clientFd);
+    */
 };
 
 #endif
