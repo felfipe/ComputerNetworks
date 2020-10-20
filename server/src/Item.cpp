@@ -17,6 +17,21 @@ int RUNAANS_HURRICANE[7] = {0, 0, 0, 0, 0, 0, 0};    // Buff -> Ataque basico da
 int TRINITY_FORCE[7] = {0, 0, 0, 0, 0, 0, 0};        // Buff -> Ataques basicos em turnos pares dao 1.x do AD
 int REDEMPTION[7] = {0, 0, 0, 0, 0, 0, 0};           // Buff -> Cura todos aliados em 0.x do AP a cada x turnos
 
+const float BUFF_IE = 1.5;
+const float BUFF_RABBADODON = 1.4;
+const float BUFF_THORNMAIL = 0.7;
+const float BUFF_SV = 1.2;
+const float BUFF_WARMOG = 50;
+const float BUFF_SERAPH = 0.85;
+const float BUFF_BOOTS = 0.2;
+const float BUFF_RK = 0.05;  //??
+const float BUFF_BC = 30;    //??
+//LYANDRY NAO PRECISA
+//VEU TMB NAO
+//RUNAN TMB NAO
+const float BUFF_TF = 2;
+const float BUFF_REDEMPTION = 0.3;
+
 Item::Item(string name) {
     if (name == "Infinity Edge") {
         this->id = 1;
@@ -138,20 +153,45 @@ string Item::getType() {
     return this->type;
 }
 
-void Item::applyItem(int value, vector<string> effects, bool area) {
+void Item::applyItem(int value, int mana, set<string> effects, bool area, int turn) {
+    int valueR = value;
+    int manaR = mana;
+    bool areaR = areaR;
+    set<string> effectsR = effects;
     if (name == "Infinity Edge") {
-        } else if (name == "Rabbadons") {
+        if (turn % 2 == 0) {
+            valueR = valueR * BUFF_TF;
+        }
+    } else if (name == "Rabbadons") {
+        valueR = valueR * BUFF_RABBADODON;
     } else if (name == "Thornmail") {
+        valueR = valueR * BUFF_THORNMAIL;
     } else if (name == "Spirity Visage") {
+        valueR = valueR * BUFF_SV;
     } else if (name == "Warmogs") {
+        valueR = BUFF_WARMOG;
     } else if (name == "Seraph Embrace") {
+        manaR = manaR * BUFF_SERAPH;
     } else if (name == "Boots") {
-    } else if (name == "Adaptive Helm") {
+        int r = rand() % 100 + 1;
+        if (r <= 20) {
+            valueR = 0;
+        }
+    } else if (name == "Redemption") {
+        if (turn % 5 == 0) {
+            valueR = valueR * BUFF_REDEMPTION;
+        }
     } else if (name == "Blade Ruined King") {
-    } else if (name == "Black Cleaver") {
+        valueR = valueR * (1 + BUFF_RK * turn);
+    } else if (name == "Black Cleaver") {  //Aposentado
+        if (turn % 10 == 0) {
+            valueR = valueR * 10;
+        }
     } else if (name == "Liandry") {
+        effectsR.insert("burn");
     } else if (name == "Banshee") {
+        effectsR.clear();
     } else if (name == "Runaans") {
-    } else if (name == "Trynity Force") {
+        bool areaR = true;
     }
 }
