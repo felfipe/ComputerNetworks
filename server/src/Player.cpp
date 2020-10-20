@@ -5,14 +5,16 @@
 Player::Player(string name, Champion *champion) {
 }
 
-void Player::setDamage(vector<Champion *> champions, int action) {
+void Player::setDamage(vector<Champion *> champions, int action, int alvo) {
     int value = 0;
     string type = "";
     vector<string> effects;
+    bool areaEffect = false;
     if (action < 0) {        //Not Spells
         if (action == -1) {  //basic attack
             value = BASICATTACKMULTIPLIER * this->champion->attribs->attackDamage;
             //Aplicar efeito dos items de atack basico
+
             //montar o pacote de dano
             return
         }
