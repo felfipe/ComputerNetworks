@@ -67,7 +67,7 @@ void Server::listenForClients() {
 
 void Server::setUpPlayer(int socket_client, int cli_id) {
     char name_c[256];
-    recv(socket_client, name_c, 256, 0);
+    recv(socket_client, name_c, 20, 0);
     int champion;
     recv(socket_client, &champion, sizeof(int), 0);
     int item[2];
