@@ -5,15 +5,15 @@ class Champion {
    private:
     string name;
     Attribute* attribs;
-    string type;
+    int type;
     vector<Item> item;
     vector<string> effects;
     Spell* spell[4];
 
    public:
-    Champion(string name);
+    Champion(int champion);
     string getName();
-    string getType();
+    int getType();
     vector<Item> getItem();
     vector<string> getEffects();
     Attribute* getAttribs();
