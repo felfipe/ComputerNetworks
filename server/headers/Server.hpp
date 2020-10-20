@@ -25,6 +25,7 @@ class Server {
     int sendMessageBroadcast(int socket_client, char* message);
     int sendMessage(int socket_client, char* message);
     Player* getPlayers();
+    struct instruction waitForInstruction(Player* player);
 
    private:
     Player* player[MAX_CONNECTIONS];

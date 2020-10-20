@@ -2,7 +2,7 @@
 #include "headers/Globals.hpp"
 #include "headers/Player.hpp"
 
-vector<Player> playerList;
+vector<Player*> playerList;
 
 int selectChampion() {
     cout << "|----------------------------------|" << endl;
@@ -99,6 +99,9 @@ int main() {
     }
 
     client->setUpClient(nickname, championId, arrItem);
+    cout << "Waiting to start . . ." << endl;
     client->receivePlayers();
+    playerList = client->getPlayerslist();
+
     return 0;
 }

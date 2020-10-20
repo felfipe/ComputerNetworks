@@ -109,3 +109,10 @@ void Server::sendPlayers() {
         }
     }
 }
+
+struct instruction Server::waitForInstruction(Player *player) {
+    struct instruction instruction;
+    recv(player->getSocket(), &instruction.type, sizeof(int), 0);
+    recv(player->getSocket(), &instruction.target, sizeof(int), 0);
+    return instruction;
+}
