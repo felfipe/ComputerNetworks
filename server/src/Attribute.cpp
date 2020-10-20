@@ -56,5 +56,5 @@ void Attribute::setSpeed(int speed) {
     this->speed = speed;
 }
 void Attribute::setMana(int mana) {
-    this->mana = mana
+    this->mana = mana;
 }
