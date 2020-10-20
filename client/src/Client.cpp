@@ -55,7 +55,13 @@ Client::Client(string address, int port) {
 }
 
 void Client::setUpClient(char* nickname, int championId, int* item) {
+    cout << "---------- log -----------" << endl;
+    cout << "nick  " << nickname << endl;
+    cout << "champ " << championId << endl;
+    cout << "item1 " << item[0] << endl;
+    cout << "item2 " << item[1] << endl;
+
     send(this->socketFd, nickname, strlen(nickname), 0);
     send(this->socketFd, &championId, sizeof(int), 0);
-    send(this->socketFd, &item, 2 * sizeof(int), 0);
+    send(this->socketFd, item, 2 * sizeof(int), 0);
 }
