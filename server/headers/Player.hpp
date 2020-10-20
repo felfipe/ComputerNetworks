@@ -8,8 +8,7 @@ class Player {
 
    public:
     Player(string name, Champion* champion);
-    void getDamage();
-    void setDamage(vector<Champion*> champions, int action);
+    void setDamage(vector<Champion*> champions, int action, int target);
 };
 
 #endif

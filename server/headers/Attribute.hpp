@@ -16,7 +16,13 @@ class Attribute {
     int getLife();
     int getSpeed();
     int getMana();
-    // set (?)
+    void setArmor(int armor);
+    void setAttackDamage(int attackDamage);
+    void setAbilityPower(int abilityPower);
+    void setMagicResist(int magicResist);
+    void setLife(int life);
+    void setSpeed(int speed);
+    void setMana(int mana);
 };
 
 #endif
