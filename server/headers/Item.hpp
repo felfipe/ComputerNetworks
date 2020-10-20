@@ -10,7 +10,7 @@ class Item {
     string type;
 
    public:
-    Item(string name);
+    Item(int id);
     int getId();
     string getName();
     string getDescription();

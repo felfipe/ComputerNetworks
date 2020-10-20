@@ -11,7 +11,7 @@ void Player::setDamage(vector<Champion *> champions, int action, int target) {
     bool areaEffect = false;
 
     // Jogada invalida
-    if (action != SKIP and action != AA and action != SPELL_Q and action != SPELL_W and action != SPELL_E and action != SPELL_R) return;
+    if (action != AA and action != SPELL_Q and action != SPELL_W and action != SPELL_E and action != SPELL_R) return;
 
     if (action == AA) {
         value = BASICATTACKMULTIPLIER * this->champion->getAttribs()->getAttackDamage();

@@ -114,13 +114,27 @@ void Champion::getHealed(int heal) {
     //aplicar os efeitos de items de HEAL
     this->getAttribs()->setLife(this->getAttribs()->getLife() + heal);
 }
-vector<Item> Champion::getItem() {
+vector<Item*> Champion::getItem() {
     return this->item;
 }
 
 Spell* Champion::getSpell(int idx) {
     return this->spell[idx];
 }
+
+void Champion::setItem(int itemId) {
+    Item* item = new Item(itemId);
+    this->getAttribs()->setAbilityPower(item->getAttribs()->getAbilityPower());
+    this->getAttribs()->setArmor(item->getAttribs()->getArmor());
+    this->getAttribs()->setAttackDamage(item->getAttribs()->getAttackDamage());
+    this->getAttribs()->setLife(item->getAttribs()->getLife());
+    this->getAttribs()->setMagicResist(item->getAttribs()->getMagicResist());
+    this->getAttribs()->setMana(item->getAttribs()->getMana());
+    this->getAttribs()->setSpeed(item->getAttribs()->getSpeed());
+    this->item.push_back(item);
+}
+
+// attack or defense
 void Champion::applyItems(string type, int value, vector<string> effects) {
     int valueR;
     vector<string> effectsR;

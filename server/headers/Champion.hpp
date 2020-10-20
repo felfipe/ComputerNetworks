@@ -6,7 +6,7 @@ class Champion {
     string name;
     Attribute* attribs;
     int type;
-    vector<Item> item;
+    vector<Item*> item;
     vector<string> effects;
     Spell* spell[4];
 
@@ -14,7 +14,7 @@ class Champion {
     Champion(int champion);
     string getName();
     int getType();
-    vector<Item> getItem();
+    vector<Item*> getItem();
     vector<string> getEffects();
     Attribute* getAttribs();
     void getDamage(int value, vector<string> effects);
@@ -23,6 +23,7 @@ class Champion {
     Attribute* getAttribs();
     Spell* getSpell(int idx);
     void applyItems(string type, int value, vector<string> effects);
+    void setItem(Item* item);
 };
 
 #endif
