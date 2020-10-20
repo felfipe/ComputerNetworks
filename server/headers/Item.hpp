@@ -7,6 +7,7 @@ class Item {
     string name;
     string description;
     Attribute* attribs;
+    string type;
 
    public:
     Item(string name);
@@ -14,6 +15,7 @@ class Item {
     string getName();
     string getDescription();
     Attribute* getAttribs();
+    string getType();
 };
 
 #endif

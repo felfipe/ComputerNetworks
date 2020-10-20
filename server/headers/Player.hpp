@@ -1,6 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-
+#include <vector>
 class Player {
    private:
     string name;
@@ -9,7 +9,7 @@ class Player {
    public:
     Player(string name, Champion* champion);
     void getDamage();
-    void setDamage();
+    void setDamage(vector<Champion*> champions, int action);
 };
 
 #endif

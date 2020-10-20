@@ -136,3 +136,6 @@ string Item::getDescription() {
 Attribute* Item::getAttribs() {
     return this->attribs;
 }
+string Item::getType() {
+    return this->type;
+}
