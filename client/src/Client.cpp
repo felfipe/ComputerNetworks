@@ -1,8 +1,8 @@
-#include "headers/Client.hpp"
+#include "../headers/Client.hpp"
 
 /*void *Client::connection_sender(void *clientFd) {
     int client = *(int *)clientFd;
-    std::cout << "[INFO] Connection sender created" << std::endl;
+    cout << "[INFO] Connection sender created" << endl;
     while (1) {
         char buffer[256];
         fgets(buffer, 256, stdin);
@@ -14,7 +14,7 @@ void *Client::connection_listener(void *clientFd) {
     int client = *((int *)clientFd);
     int read_size;
     char buffer[2000];
-    std::cout << "[INFO] Connection listener created" << std::endl;
+    cout << "[INFO] Connection listener created" << endl;
     int recived_bytes;
     while (1) {
         recived_bytes = recv(client, buffer, 256, 0);
@@ -24,14 +24,14 @@ void *Client::connection_listener(void *clientFd) {
     return 0;
 }
 */
-Client::Client(std::string address, int port) {
+Client::Client(string address, int port) {
     char ip_address[20];
-    strcpy(ip_address, address.c_str());  // std::string to char*
+    strcpy(ip_address, address.c_str());  // string to char*
 
     socketFd = socket(AF_INET, SOCK_STREAM, 0);  // create socket server file descriptor
 
     if (socketFd == -1) {
-        std::cout << "[ERROR] Failed to create socket!" << std::endl;
+        cout << "[ERROR] Failed to create socket!" << endl;
         return;
     }
 
@@ -39,15 +39,15 @@ Client::Client(std::string address, int port) {
     server.sin_port = htons(port);
 
     if (inet_pton(AF_INET, ip_address, &server.sin_addr) <= 0) {  // verify ip address
-        std::cout << "[ERROR] Invalid Address" << std::endl;
+        cout << "[ERROR] Invalid Address" << endl;
         return;
     }
     if (connect(socketFd, (struct sockaddr *)&server, sizeof(server))) {  // try to connect to server
-        std::cout << "[ERROR] Connection Failed" << std::endl;
+        cout << "[ERROR] Connection Failed" << endl;
         return;
     }
-    /*th_socket_sender = std::thread(connection_sender, (void *)&socketFd);
-    th_socket_listener = std::thread(connection_listener, (void *)&socketFd);
+    /*th_socket_sender = thread(connection_sender, (void *)&socketFd);
+    th_socket_listener = thread(connection_listener, (void *)&socketFd);
     th_socket_listener.join();
     th_socket_sender.join();
     */
@@ -58,14 +58,14 @@ void Client::setUpClient() {
     char nome[256];
     int champion;
     int item[2];
-    std::cout << "Type your nickname: ";
-    std::cin >> nome;
-    std::cout << std::endl
+    cout << "Type your nickname: ";
+    cin >> nome;
+    cout << endl
               << "Chose your champion: ";
 
-    std::cin >> champion;
-    std::cin >> item[0];
-    std::cin >> item[1];
+    cin >> champion;
+    cin >> item[0];
+    cin >> item[1];
     send(this->socketFd, nome, sizeof(nome), 0);
     send(this->socketFd, &champion, sizeof(int), 0);
     send(this->socketFd, &item, 2 * sizeof(int), 0);

@@ -1,8 +1,16 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
+#include <arpa/inet.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <unistd.h>
+
+#include <cstdlib>
 #include <iostream>
+#include <set>
 #include <string>
+#include <thread>
 #include <vector>
 using namespace std;
 
@@ -29,5 +37,7 @@ using namespace std;
 #define RUNAANS_HURRICANE 11
 #define TRINITY_FORCE 12
 #define REDEMPTION 13
+
+#define MAX_ITEMS 2
 
 #endif
