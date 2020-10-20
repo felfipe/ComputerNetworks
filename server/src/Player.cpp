@@ -29,7 +29,6 @@ struct moviment Player::setDamage(int action, int turn) {
         move.type = DAMAGE_SPELL;
         move.areaEffect = areaEffect;
         move.effects = effects;
-        return move;
     } else if (action == SPELL_Q || action == SPELL_W || action == SPELL_E || action == SPELL_R) {
         value = this->champion->getSpell(action)->getValue();
         spellType = this->champion->getSpell(action)->getType();
@@ -46,10 +45,10 @@ struct moviment Player::setDamage(int action, int turn) {
         move.value = value;
         move.areaEffect = areaEffect;
         move.effects = effects;
-        return move;
         //agora os valores de value, effects e area Effect ja estão basta causa esse dano ao target ou aos targets
         //termina o ataque
     }
+    return move;
 }
 
 Champion *Player::getChampion() {

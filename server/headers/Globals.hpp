@@ -76,6 +76,7 @@ struct instruction {
     int type;
     int target;
 };
+
 struct moviment {
     int type;
     int value;
