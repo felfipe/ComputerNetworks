@@ -72,4 +72,9 @@ using namespace std;
 #define HEAL_SPELL 0
 #define DAMAGE_SPELL 1
 
+struct instruction {
+    int type;
+    int target;
+};
+
 #endif
