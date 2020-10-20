@@ -47,9 +47,19 @@ void Player::setDamage(vector<Champion *> champions, int action, int target, int
 Champion *Player::getChampion() {
     return this->champion;
 }
-std::string Player::getNickname() {
+
+string Player::getNickname() {
     return this->nickname;
 }
+
 int Player::getSocket() {
     return this->socket;
+}
+
+void Player::setId(int id) {
+    this->id = id;
+}
+
+int Player::getId() {
+    return this->id;
 }
