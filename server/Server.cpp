@@ -64,7 +64,9 @@ void Server::listenForClients() {
             break;
     }
 }
-
+Player *Server::getPlayers() {
+    return this->player
+}
 void Server::setUpPlayer(int socket_client, int cli_id) {
     char name_c[256];
     recv(socket_client, name_c, 20, 0);
@@ -106,4 +108,11 @@ void Server::sendPlayers() {
             send(player[i]->getSocket(), item, 2 * sizeof(int), 0);
         }
     }
+}
+
+struct instruction Server::waitForInstruction(Player *player) {
+    struct instruction instruction;
+    recv(player->getSocket(), &instruction.type, sizeof(int), 0);
+    recv(player->getSocket(), &instruction.target, sizeof(int), 0);
+    return instruction;
 }
