@@ -49,5 +49,6 @@ using namespace std;
 
 #define MAX_ITEMS 2
 #define MAX_NICKNAME 20
+#define MAX_PLAYERS 4
 
 #endif

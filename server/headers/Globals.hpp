@@ -19,12 +19,12 @@ using namespace std;
 #define TALON 5
 
 // Actions
-#define SKIP -2
-#define AA -1
 #define SPELL_Q 0
 #define SPELL_W 1
 #define SPELL_E 2
 #define SPELL_R 3
+#define AA 4
+#define SKIP 5
 
 // Champion's type
 #define TANK 1

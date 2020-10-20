@@ -65,17 +65,24 @@ void Client::setUpClient(char* nickname, int championId, int* item) {
     send(this->socketFd, &championId, sizeof(int), 0);
     send(this->socketFd, item, 2 * sizeof(int), 0);
 }
+
 void Client::receivePlayers() {
-    char name[20];
+    char nickname[MAX_NICKNAME];
     int champion;
-    int item[2];
-    int id_player;
-    for (int i = 0; i < 3; i++) {
-        recv(this->socketFd, &id_player, sizeof(int), 0);
-        recv(this->socketFd, &name, 20, 0);
+    int item[MAX_ITEMS];
+    int idPlayer;
+    for (int i = 0; i < MAX_PLAYERS; i++) {
+        recv(this->socketFd, &idPlayer, sizeof(int), 0);
+        recv(this->socketFd, &nickname, MAX_NICKNAME, 0);
         recv(this->socketFd, &champion, sizeof(int), 0);
-        recv(this->socketFd, item, 2 * sizeof(int), 0);
-        std::cout << "Player" << i << ": " << name << ", Champion: " << champion
+        recv(this->socketFd, item, MAX_ITEMS * sizeof(int), 0);
+        Player* player = new Player(idPlayer, nickname, champion, item[0], item[1]);
+        this->playerList.push_back(player);
+        std::cout << "Player" << i << ": " << nickname << ", Champion: " << champion
                   << ", Item 0: " << item[0] << ", Item 1: " << item[1] << std::endl;
     }
+}
+
+vector<Player*> Client::getPlayerslist() {
+    return this->playerList;
 }
