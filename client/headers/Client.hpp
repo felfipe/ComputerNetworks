@@ -1,25 +1,15 @@
-#include <arpa/inet.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <unistd.h>
-
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <thread>
-
 #ifndef __CLIENT
 #define __CLIENT
 
+#include "Globals.hpp"
+
 class Client {
    public:
-    Client(std::string address, int port);
+    Client(string address, int port);
     int socketFd;
     struct sockaddr_in server;
-    std::thread th_socket_listener;
-    std::thread th_socket_sender;
-    void setUpClient();
     void receivePlayers();
+    void setUpClient(char* nickname, int championId, int* item);
 
    private:
     /*static void* connection_sender(void* clientFd);
