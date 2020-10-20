@@ -33,6 +33,11 @@ int main(int argc, char* argv[]) {
             currentPlayer = players[i];
             action = server->waitForInstruction(currentPlayer);
             move = currentPlayer->setDamage(action.type, turn);
+            if (move.areaEffect == true) {
+                //impacta em todos os players
+            } else {
+                //impacto apenas no target
+            }
             //wait for instruction
         }
     }
