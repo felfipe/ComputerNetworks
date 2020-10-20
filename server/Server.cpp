@@ -65,7 +65,7 @@ void Server::listenForClients() {
     }
 }
 Player *Server::getPlayers() {
-    return this->player
+    return this->player;
 }
 void Server::setUpPlayer(int socket_client, int cli_id) {
     char name_c[256];
