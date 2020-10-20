@@ -10,12 +10,12 @@ using namespace std;
 
 // Enuns
 // Champions
-#define GAREN_ 0
-#define DARIUS_ 1
-#define LUX_ 2
-#define RYZE_ 3
-#define ASHE_ 4
-#define VAYNE_ 5
+#define GAREN 0
+#define DARIUS 1
+#define LUX 2
+#define RYZE 3
+#define ASHE 4
+#define VAYNE 5
 
 // Actions
 #define SKIP -2

@@ -1,5 +1,4 @@
-#include <Attributes.hpp>
-#include <Item.hpp>
+#include "../headers/Item.hpp"
 
 Item::Item(int id, string name, string description, Attributes* attribs) {
     this->attribs = attribs;

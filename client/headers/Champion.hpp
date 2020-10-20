@@ -1,8 +1,9 @@
 #ifndef Champion_H
 #define Champion_H
-#include <string>
-#include <vector>
-using namespace std;
+#include "Attributes.hpp"
+#include "Globals.hpp"
+#include "Spell.hpp"
+
 class Champion {
    private:
     Attributes *attribs;

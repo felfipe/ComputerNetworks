@@ -1,4 +1,4 @@
-#include <Attributes.hpp>
+#include "../headers/Attributes.hpp"
 
 Attributes::Attributes(int life, int atackDamage, int abilityPower, int armor, int magicResistence, int speed, int mana) {
     this->life = life;

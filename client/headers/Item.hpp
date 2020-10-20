@@ -1,7 +1,8 @@
 #ifndef ITEM_H
 #define ITEM_H
-#include <string>
-using namespace std;
+#include "Attributes.hpp"
+#include "Globals.hpp"
+
 class Item {
    private:
     int id;

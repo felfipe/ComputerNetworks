@@ -1,4 +1,4 @@
-#include <Spell.hpp>
+#include "../headers/Spell.hpp"
 
 Spell::Spell(string name, string effect, int value, int manaCost) {
     this->name = name;

@@ -1,7 +1,6 @@
 #ifndef ATTRIBUTES_H
 #define ATTRIBUTES_H
-#include <string>
-using namespace std;
+
 class Attributes {
    private:
     int life;
