@@ -1,4 +1,4 @@
-#include <headers/Globals.hpp>
+#include "../headers/Spell.hpp"
 
 int SPELLS[6][4][3] = {
     {{0, 0, 0},

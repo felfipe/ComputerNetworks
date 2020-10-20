@@ -1,4 +1,4 @@
-#include <headers/Globals.hpp>
+#include "../headers/Item.hpp"
 
 // Regen de mana no auto ataque
 // Implementar queimação de skills (dano de skills durante turnos)
@@ -160,45 +160,58 @@ void Item::applyItem(int value, int mana, set<string> effects, bool area, int tu
     bool areaR = areaR;
     set<string> effectsR = effects;
     switch (this->id) {
-        case INFINITY_EDGE:
+        case INFINITY_EDGE: {
             if (turn % 2 == 0) valueR *= BUFF_TF;
             break;
-        case RABBADONS_DEATH_CAP:
+        }
+        case RABBADONS_DEATH_CAP: {
             valueR *= BUFF_RABBADODON;
             break;
-        case THORNMAIL:
+        }
+        case THORNMAIL: {
             valueR *= BUFF_THORNMAIL;
             break;
-        case SPIRITY_VISAGE:
+        }
+        case SPIRITY_VISAGE: {
             valueR *= BUFF_SV;
             break;
-        case WARMOGS_ARMOR:
+        }
+        case WARMOGS_ARMOR: {
             valueR = BUFF_WARMOG;
             break;
-        case SERAPH_EMBRACE:
+        }
+        case SERAPH_EMBRACE: {
             manaR *= BUFF_SERAPH;
             break;
-        case BOOTS_SWIFTNESS:
+        }
+        case BOOTS_SWIFTNESS: {
             int r = rand() % 100 + 1;
             if (r <= 20) valueR = 0;
             break;
-        case REDEMPTION:
+        }
+        case REDEMPTION: {
             if (turn % 5 == 0) valueR *= BUFF_REDEMPTION;
             break;
-        case BLADE_RUINED_KING:
+        }
+        case BLADE_RUINED_KING: {
             valueR *= (1 + BUFF_RK * turn);
             break;
-        case BLACK_CLEAVER:
+        }
+        case BLACK_CLEAVER: {
             if (turn % 10 == 0) valueR *= 10;
             break;
-        case LIANDRY_TORNENT:
+        }
+        case LIANDRY_TORNENT: {
             effectsR.insert("burn");
             break;
-        case BANSHEE_VEIL:
+        }
+        case BANSHEE_VEIL: {
             effectsR.clear();
             break;
-        case RUNAANS_HURRICANE:
+        }
+        case RUNAANS_HURRICANE: {
             bool areaR = true;
             break;
+        }
     }
 }

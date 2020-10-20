@@ -1,4 +1,4 @@
-#include <headers/Globals.hpp>
+#include "../headers/Champion.hpp"
 
 // Ordem do ENUM de champions em Globals
 int CHAMPION[6][7] = {
@@ -110,10 +110,15 @@ void Champion::getDamage(int value, vector<string> effects) {
     this->getAttribs()->setLife(this->getAttribs()->getLife() - damage);
     this->setEffects(effects);
 }
+
+void Champion::setEffects(vector<string> effects) {
+}
+
 void Champion::getHealed(int heal) {
     //aplicar os efeitos de items de HEAL
     this->getAttribs()->setLife(this->getAttribs()->getLife() + heal);
 }
+
 vector<Item*> Champion::getItem() {
     return this->item;
 }

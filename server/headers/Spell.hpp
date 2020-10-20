@@ -1,5 +1,6 @@
 #ifndef SPELL_H
 #define SPELL_H
+#include "Globals.hpp"
 
 class Spell {
    private:

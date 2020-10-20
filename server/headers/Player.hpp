@@ -1,6 +1,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "Champion.hpp"
+#include "Globals.hpp"
+
 class Player {
    private:
     string nickname;

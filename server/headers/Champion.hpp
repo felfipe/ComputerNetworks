@@ -1,6 +1,11 @@
 #ifndef CHAMPION_H
 #define CHAMPION_H
 
+#include "Attribute.hpp"
+#include "Globals.hpp"
+#include "Item.hpp"
+#include "Spell.hpp"
+
 class Champion {
    private:
     string name;
@@ -20,7 +25,6 @@ class Champion {
     void getDamage(int value, vector<string> effects);
     void getHealed(int heal);
     void setEffects(vector<string> effects);
-    Attribute* getAttribs();
     Spell* getSpell(int idx);
     void applyItems(string type, int value, vector<string> effects);
     void setItem(int itemId);

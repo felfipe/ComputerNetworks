@@ -9,7 +9,7 @@
 #include <string>
 #include <thread>
 
-#include "Globals.hpp"
+#include "Player.hpp"
 #ifndef __SERVER
 #define __SERVER
 #define MAX_CONNECTIONS 4

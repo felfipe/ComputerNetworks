@@ -1,4 +1,4 @@
-#include <headers/Globals.hpp>
+#include "../headers/Player.hpp"
 
 #define BASICATTACKMULTIPLIER 2
 Player::Player(string nickname, int championId, int item1, int item2) {

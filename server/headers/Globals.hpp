@@ -6,12 +6,7 @@
 #include <string>
 #include <vector>
 
-// Local imports
-#include <Attribute.hpp>
-#include <Champion.hpp>
-#include <Item.hpp>
-#include <Player.hpp>
-#include <Spell.hpp>
+using namespace std;
 
 // Enuns
 // Champions
@@ -61,7 +56,5 @@
 #define BUFF_BC 30
 #define BUFF_TF 2
 #define BUFF_REDEMPTION 0.3
-
-using namespace std;
 
 #endif

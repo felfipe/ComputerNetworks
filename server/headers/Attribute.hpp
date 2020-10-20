@@ -16,6 +16,7 @@ class Attribute {
     int getLife();
     int getSpeed();
     int getMana();
+
     void setArmor(int armor);
     void setAttackDamage(int attackDamage);
     void setAbilityPower(int abilityPower);

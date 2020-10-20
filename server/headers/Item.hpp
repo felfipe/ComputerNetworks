@@ -1,6 +1,9 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include "Attribute.hpp"
+#include "Globals.hpp"
+
 class Item {
    private:
     int id;
