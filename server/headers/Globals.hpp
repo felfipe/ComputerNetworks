@@ -21,13 +21,15 @@
 #define ASHE_ 4
 #define VAYNE_ 5
 
-// Spells
-#define Q 0
-#define W 1
-#define E 2
-#define R 3
+// Actions
+#define SKIP -2
+#define AA -1
+#define SPELL_Q 0
+#define SPELL_W 1
+#define SPELL_E 2
+#define SPELL_R 3
 
-// Types Champions
+// Champion's type
 #define TANK 0
 #define MAGE 1
 #define ADCARRY 2
