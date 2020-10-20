@@ -24,6 +24,7 @@ class Server {
     void sendPlayers();
     int sendMessageBroadcast(int socket_client, char* message);
     int sendMessage(int socket_client, char* message);
+    Player* getPlayers();
 
    private:
     Player* player[MAX_CONNECTIONS];
