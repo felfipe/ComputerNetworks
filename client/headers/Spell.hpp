@@ -1,7 +1,7 @@
 #ifndef SPELL_H
 #define SPELL_H
-#include <string>
-using namespace std;
+#include "Globals.hpp"
+
 class Spell {
    private:
     string name;

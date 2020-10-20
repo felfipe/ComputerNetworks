@@ -1,6 +1,4 @@
-#include <Attributes.hpp>
-#include <Champion.hpp>
-#include <Spell.hpp>
+#include "../headers/Champion.hpp"
 
 Champion::Champion(string name, Attributes *attribs, string type, vector<Spell> spells) {
     this->attribs = attribs;
