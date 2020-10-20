@@ -16,7 +16,7 @@ Champion::Champion(string name) {
             GAREN[2], GAREN[3],
             GAREN[4], GAREN[5],
             GAREN[6]);
-        this->type = "TANK";
+        this->type = TANK;
         this->spell[0] = new Spell(GAREN_, Q);
         this->spell[1] = new Spell(GAREN_, W);
         this->spell[2] = new Spell(GAREN_, E);
@@ -27,7 +27,7 @@ Champion::Champion(string name) {
             LUX[2], LUX[3],
             LUX[4], LUX[5],
             LUX[6]);
-        this->type = "MAGE";
+        this->type = MAGE;
         this->spell[0] = new Spell(LUX_, Q);
         this->spell[1] = new Spell(LUX_, W);
         this->spell[2] = new Spell(LUX_, E);
@@ -38,7 +38,7 @@ Champion::Champion(string name) {
             ASHE[2], ASHE[3],
             ASHE[4], ASHE[5],
             ASHE[6]);
-        this->type = "RANGED";
+        this->type = ADCARRY;
         this->spell[0] = new Spell(ASHE_, Q);
         this->spell[1] = new Spell(ASHE_, W);
         this->spell[2] = new Spell(ASHE_, E);
@@ -49,7 +49,7 @@ Champion::Champion(string name) {
             DARIUS[2], DARIUS[3],
             DARIUS[4], DARIUS[5],
             DARIUS[6]);
-        this->type = "TANK";
+        this->type = TANK;
         this->spell[0] = new Spell(DARIUS_, Q);
         this->spell[1] = new Spell(DARIUS_, W);
         this->spell[2] = new Spell(DARIUS_, E);
@@ -60,7 +60,7 @@ Champion::Champion(string name) {
             RYZE[2], RYZE[3],
             RYZE[4], RYZE[5],
             RYZE[6]);
-        this->type = "MAGE";
+        this->type = MAGE;
         this->spell[0] = new Spell(RYZE_, Q);
         this->spell[1] = new Spell(RYZE_, W);
         this->spell[2] = new Spell(RYZE_, E);
@@ -71,7 +71,7 @@ Champion::Champion(string name) {
             VAYNE[2], VAYNE[3],
             VAYNE[4], VAYNE[5],
             VAYNE[6]);
-        this->type = "RANGED";
+        this->type = ADCARRY;
         this->spell[0] = new Spell(VAYNE_, Q);
         this->spell[1] = new Spell(VAYNE_, W);
         this->spell[2] = new Spell(VAYNE_, E);
@@ -79,7 +79,7 @@ Champion::Champion(string name) {
     }
 }
 
-string Champion::getType() {
+int Champion::getType() {
     return this->type;
 }
 
