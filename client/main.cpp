@@ -116,7 +116,7 @@ int selectTarget() {
     printf("|   | TARGET                           |\n");
     printf("|--------------------------------------|\n");
     for (int i = 0; i < playerList.size(); i++) {
-        printf("| %d | %20s |\n", i, playerList[i]);
+        printf("| %d | %20s |\n", i, playerList[i]->getNickname());
     }
     printf("|Select your Target: ");
     int target;

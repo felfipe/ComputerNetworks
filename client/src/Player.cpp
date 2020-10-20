@@ -1,6 +1,6 @@
 #include "../headers/Player.hpp"
 
-Player::Player(int id, string nickname, int championId) {
+Player::Player(int id, string name, int championId, int itemId1, int itemId2) {
     this->id = id;
     this->nickname = nickname;
     this->champion = new Champion(championId);
