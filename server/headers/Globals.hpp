@@ -86,5 +86,10 @@ struct status {
     int medicResist;
     int your_turn;
 };
-
+struct moviment {
+    int type;
+    int value;
+    bool areaEffect;
+    set<string> effects;
+};
 #endif
