@@ -45,10 +45,27 @@ Client::Client(std::string address, int port) {
         std::cout << "[ERROR] Connection Failed" << std::endl;
         return;
     }
-
-    th_socket_sender = std::thread(connection_sender, (void *)&socketFd);
+    /*th_socket_sender = std::thread(connection_sender, (void *)&socketFd);
     th_socket_listener = std::thread(connection_listener, (void *)&socketFd);
     th_socket_listener.join();
     th_socket_sender.join();
+    */
     return;
+}
+
+void Client::setUpClient() {
+    char nome[256];
+    int champion;
+    int item[2];
+    std::cout << "Type your nickname: ";
+    std::cin >> nome;
+    std::cout << std::endl
+              << "Chose your champion: ";
+
+    std::cin >> champion;
+    std::cin >> item[0];
+    std::cin >> item[1];
+    send(this->socketFd, nome, sizeof(nome), 0);
+    send(this->socketFd, &champion, sizeof(int), 0);
+    send(this->socketFd, &item, 2 * sizeof(int), 0);
 }

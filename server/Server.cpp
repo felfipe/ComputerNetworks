@@ -52,12 +52,27 @@ void Server::listenForClients() {
             continue;
         }
         std::cout << "[INFO] New connection accepted (IP " << inet_ntoa(client.sin_addr) << ":" << client.sin_port << ")" << std::endl;
+        this->getPlayer(socket_client[cli_id]);
+        /*
         th_clients_sender[cli_id] = std::thread(connection_sender, (void *)&socket_client[cli_id]);
         th_clients_listener[cli_id] = std::thread(connection_listener, (void *)&socket_client[cli_id]);
+        */
         cli_id++;
         if (cli_id == number_players - 1)
             break;
     }
+}
+
+void Server::getPlayer(int socket_client) {
+    char name[256];
+    recv(socket_client, name, 256, 0);
+    int champion;
+    recv(socket_client, &champion, sizeof(int), 0);
+    int item[2];
+    recv(socket_client, &item[0], sizeof(int), 0);
+    recv(socket_client, &item[1], sizeof(int), 0);
+    std::cout << "Player: " << name << ", Champion: " << champion << ", Item: " << item[0] << " " << item[1] << std::endl;
+    return;
 }
 void Server::closeConnection() {
     for (auto i : socket_client)

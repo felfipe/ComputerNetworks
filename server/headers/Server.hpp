@@ -9,6 +9,7 @@
 #include <string>
 #include <thread>
 
+#include "Globals.hpp"
 #ifndef __SERVER
 #define __SERVER
 #define MAX_CONNECTIONS 4
@@ -20,9 +21,12 @@ class Server {
     Server(int port, int number_players);
     void listenForClients();
     void closeConnection();
+    void getPlayer(int socket_client);
+    int sendMessageBroadcast(int socket_client, char* message);
     int sendMessage(int socket_client, char* message);
 
    private:
+    Player* player[MAX_CONNECTIONS];
     int number_players;
     struct sockaddr_in server;
     std::thread th_clients_listener[10];
