@@ -5,7 +5,7 @@
 class Spell {
    private:
     string name;
-    string type;
+    int type;
     string effect;
     int value;
     int manaCost;
@@ -13,7 +13,7 @@ class Spell {
    public:
     Spell(int champion, int spell);
     string getName();
-    string getType();
+    int getType();
     string getEffect();
     int getValue();
     int getManaCost();

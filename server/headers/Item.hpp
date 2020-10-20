@@ -10,7 +10,7 @@ class Item {
     string name;
     string description;
     Attribute* attribs;
-    string type;
+    int type;
 
    public:
     Item(int id);
@@ -18,7 +18,7 @@ class Item {
     string getName();
     string getDescription();
     Attribute* getAttribs();
-    string getType();
+    int getType();
     void applyItem(int value, int mana, set<string> effects, bool area, int turn);
 };
 

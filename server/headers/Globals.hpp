@@ -57,4 +57,15 @@ using namespace std;
 #define BUFF_TF 2
 #define BUFF_REDEMPTION 0.3
 
+//item's type
+#define ITEM_AUTO_ATTACK 0
+#define ITEM_SPELL_DAMAGE 1
+#define ITEM_SPELL_HEAL 2
+#define ITEM_DEFENSE 3
+#define ITEM_TURN 4
+
+//spell's type
+#define HEAL_SPELL 0
+#define DAMAGE_SPELL 1
+
 #endif

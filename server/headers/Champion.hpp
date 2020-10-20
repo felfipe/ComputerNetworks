@@ -26,7 +26,7 @@ class Champion {
     void getHealed(int heal);
     void setEffects(vector<string> effects);
     Spell* getSpell(int idx);
-    void applyItems(string type, int value, vector<string> effects);
+    void applyItems(int type, int mana, int value, set<string> effects, bool areaEffect, int turn);
     void setItem(int itemId);
 };
 
