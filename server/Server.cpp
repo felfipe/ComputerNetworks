@@ -1,5 +1,5 @@
 #include "headers/Server.hpp"
-
+/*
 void *Server::connection_listener(void *clientFd) {
     int client = *((int *)clientFd);
     int read_size;
@@ -23,6 +23,7 @@ void *Server::connection_sender(void *clientFd) {
         send(client, buffer, strlen(buffer), 0);
     }
 }
+*/
 Server::Server(int port, int number_players) {
     this->number_players = number_players;
     socketFd = socket(AF_INET, SOCK_STREAM, 0);
@@ -52,7 +53,7 @@ void Server::listenForClients() {
             continue;
         }
         std::cout << "[INFO] New connection accepted (IP " << inet_ntoa(client.sin_addr) << ":" << client.sin_port << ")" << std::endl;
-        this->getPlayer(socket_client[cli_id]);
+        this->setUpPlayer(socket_client[cli_id], cli_id);
         /*
         th_clients_sender[cli_id] = std::thread(connection_sender, (void *)&socket_client[cli_id]);
         th_clients_listener[cli_id] = std::thread(connection_listener, (void *)&socket_client[cli_id]);
@@ -63,15 +64,20 @@ void Server::listenForClients() {
     }
 }
 
-void Server::getPlayer(int socket_client) {
-    char name[256];
-    recv(socket_client, name, 256, 0);
+void Server::setUpPlayer(int socket_client, int cli_id) {
+    char name_c[256];
+    recv(socket_client, name_c, 256, 0);
     int champion;
     recv(socket_client, &champion, sizeof(int), 0);
     int item[2];
     recv(socket_client, &item[0], sizeof(int), 0);
     recv(socket_client, &item[1], sizeof(int), 0);
-    std::cout << "Player: " << name << ", Champion: " << champion << ", Item: " << item[0] << " " << item[1] << std::endl;
+    std::string name(name_c);
+    this->player[cli_id] = new Player(name, champion, item[0], item[1]);
+    std::cout << "[INFO] Player setted up. Name: " << this->player[cli_id]->getNickname();
+    std::cout << " / Champion: " << this->player[cli_id]->getChampion()->getName();
+    std::cout << " / Item 0: " << this->player[cli_id]->getChampion()->getItem()[0]->getName();
+    std::cout << " / Item 1: " << this->player[cli_id]->getChampion()->getItem()[1]->getName() << std::endl;
     return;
 }
 void Server::closeConnection() {

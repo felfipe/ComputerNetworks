@@ -21,7 +21,7 @@ class Server {
     Server(int port, int number_players);
     void listenForClients();
     void closeConnection();
-    void getPlayer(int socket_client);
+    void setUpPlayer(int socket_client, int cli_id);
     int sendMessageBroadcast(int socket_client, char* message);
     int sendMessage(int socket_client, char* message);
 
@@ -31,8 +31,9 @@ class Server {
     struct sockaddr_in server;
     std::thread th_clients_listener[10];
     std::thread th_clients_sender[10];
-    static void* connection_listener(void* clientFd);
+    /*static void* connection_listener(void* clientFd);
     static void* connection_sender(void* clientFd);
+    */
 };
 
 #endif

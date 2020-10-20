@@ -1,6 +1,6 @@
 #include "headers/Client.hpp"
 
-void *Client::connection_sender(void *clientFd) {
+/*void *Client::connection_sender(void *clientFd) {
     int client = *(int *)clientFd;
     std::cout << "[INFO] Connection sender created" << std::endl;
     while (1) {
@@ -23,6 +23,7 @@ void *Client::connection_listener(void *clientFd) {
     }
     return 0;
 }
+*/
 Client::Client(std::string address, int port) {
     char ip_address[20];
     strcpy(ip_address, address.c_str());  // std::string to char*
