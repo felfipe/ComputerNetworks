@@ -17,6 +17,10 @@ Champion::Champion(string name) {
             GAREN[4], GAREN[5],
             GAREN[6]);
         this->type = "TANK";
+        this->spell[0] = new Spell(GAREN_, Q);
+        this->spell[1] = new Spell(GAREN_, W);
+        this->spell[2] = new Spell(GAREN_, E);
+        this->spell[3] = new Spell(GAREN_, R);
     } else if (name == "Lux") {
         this->attribs = new Attribute(
             LUX[0], LUX[1],
@@ -24,6 +28,10 @@ Champion::Champion(string name) {
             LUX[4], LUX[5],
             LUX[6]);
         this->type = "MAGE";
+        this->spell[0] = new Spell(LUX_, Q);
+        this->spell[1] = new Spell(LUX_, W);
+        this->spell[2] = new Spell(LUX_, E);
+        this->spell[3] = new Spell(LUX_, R);
     } else if (name == "Ashe") {
         this->attribs = new Attribute(
             ASHE[0], ASHE[1],
@@ -31,6 +39,10 @@ Champion::Champion(string name) {
             ASHE[4], ASHE[5],
             ASHE[6]);
         this->type = "RANGED";
+        this->spell[0] = new Spell(ASHE_, Q);
+        this->spell[1] = new Spell(ASHE_, W);
+        this->spell[2] = new Spell(ASHE_, E);
+        this->spell[3] = new Spell(ASHE_, R);
     } else if (name == "Darius") {
         this->attribs = new Attribute(
             DARIUS[0], DARIUS[1],
@@ -38,6 +50,10 @@ Champion::Champion(string name) {
             DARIUS[4], DARIUS[5],
             DARIUS[6]);
         this->type = "TANK";
+        this->spell[0] = new Spell(DARIUS_, Q);
+        this->spell[1] = new Spell(DARIUS_, W);
+        this->spell[2] = new Spell(DARIUS_, E);
+        this->spell[3] = new Spell(DARIUS_, R);
     } else if (name == "Ryze") {
         this->attribs = new Attribute(
             RYZE[0], RYZE[1],
@@ -45,6 +61,10 @@ Champion::Champion(string name) {
             RYZE[4], RYZE[5],
             RYZE[6]);
         this->type = "MAGE";
+        this->spell[0] = new Spell(RYZE_, Q);
+        this->spell[1] = new Spell(RYZE_, W);
+        this->spell[2] = new Spell(RYZE_, E);
+        this->spell[3] = new Spell(RYZE_, R);
     } else if (name == "Vayne") {
         this->attribs = new Attribute(
             VAYNE[0], VAYNE[1],
@@ -52,6 +72,10 @@ Champion::Champion(string name) {
             VAYNE[4], VAYNE[5],
             VAYNE[6]);
         this->type = "RANGED";
+        this->spell[0] = new Spell(VAYNE_, Q);
+        this->spell[1] = new Spell(VAYNE_, W);
+        this->spell[2] = new Spell(VAYNE_, E);
+        this->spell[3] = new Spell(VAYNE_, R);
     }
 }
 
@@ -81,7 +105,7 @@ vector<Item> Champion::getItem() {
     return this->item;
 }
 
-Spell Champion::getSpell(int idx) {
+Spell* Champion::getSpell(int idx) {
     return this->spell[idx];
 }
 void Champion::applyItems(string type, int value, vector<string> effects) {
