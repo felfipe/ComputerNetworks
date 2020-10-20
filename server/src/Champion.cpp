@@ -19,10 +19,10 @@ Champion::Champion(int champion) {
                 CHAMPION[GAREN_][4], CHAMPION[GAREN_][5],
                 CHAMPION[GAREN_][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(GAREN_, Q);
-            this->spell[1] = new Spell(GAREN_, W);
-            this->spell[2] = new Spell(GAREN_, E);
-            this->spell[3] = new Spell(GAREN_, R);
+            this->spell[0] = new Spell(GAREN_, SPELL_Q);
+            this->spell[1] = new Spell(GAREN_, SPELL_W);
+            this->spell[2] = new Spell(GAREN_, SPELL_E);
+            this->spell[3] = new Spell(GAREN_, SPELL_R);
             break;
         case DARIUS_:
             this->name = "Darius";
@@ -32,10 +32,10 @@ Champion::Champion(int champion) {
                 CHAMPION[DARIUS_][4], CHAMPION[DARIUS_][5],
                 CHAMPION[DARIUS_][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(DARIUS_, Q);
-            this->spell[1] = new Spell(DARIUS_, W);
-            this->spell[2] = new Spell(DARIUS_, E);
-            this->spell[3] = new Spell(DARIUS_, R);
+            this->spell[0] = new Spell(DARIUS_, SPELL_Q);
+            this->spell[1] = new Spell(DARIUS_, SPELL_W);
+            this->spell[2] = new Spell(DARIUS_, SPELL_E);
+            this->spell[3] = new Spell(DARIUS_, SPELL_R);
             break;
         case RYZE_:
             this->name = "Ryze";
@@ -45,10 +45,10 @@ Champion::Champion(int champion) {
                 CHAMPION[RYZE_][4], CHAMPION[RYZE_][5],
                 CHAMPION[RYZE_][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(RYZE_, Q);
-            this->spell[1] = new Spell(RYZE_, W);
-            this->spell[2] = new Spell(RYZE_, E);
-            this->spell[3] = new Spell(RYZE_, R);
+            this->spell[0] = new Spell(RYZE_, SPELL_Q);
+            this->spell[1] = new Spell(RYZE_, SPELL_W);
+            this->spell[2] = new Spell(RYZE_, SPELL_E);
+            this->spell[3] = new Spell(RYZE_, SPELL_R);
             break;
         case ASHE_:
             this->name = "Ashe";
@@ -58,10 +58,10 @@ Champion::Champion(int champion) {
                 CHAMPION[ASHE_][4], CHAMPION[ASHE_][5],
                 CHAMPION[ASHE_][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(ASHE_, Q);
-            this->spell[1] = new Spell(ASHE_, W);
-            this->spell[2] = new Spell(ASHE_, E);
-            this->spell[3] = new Spell(ASHE_, R);
+            this->spell[0] = new Spell(ASHE_, SPELL_Q);
+            this->spell[1] = new Spell(ASHE_, SPELL_W);
+            this->spell[2] = new Spell(ASHE_, SPELL_E);
+            this->spell[3] = new Spell(ASHE_, SPELL_R);
             break;
         case LUX_:
             this->name = "Lux";
@@ -71,10 +71,10 @@ Champion::Champion(int champion) {
                 CHAMPION[LUX_][4], CHAMPION[LUX_][5],
                 CHAMPION[LUX_][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(LUX_, Q);
-            this->spell[1] = new Spell(LUX_, W);
-            this->spell[2] = new Spell(LUX_, E);
-            this->spell[3] = new Spell(LUX_, R);
+            this->spell[0] = new Spell(LUX_, SPELL_Q);
+            this->spell[1] = new Spell(LUX_, SPELL_W);
+            this->spell[2] = new Spell(LUX_, SPELL_E);
+            this->spell[3] = new Spell(LUX_, SPELL_R);
             break;
         case VAYNE_:
             this->name = "Vayne";
@@ -84,10 +84,10 @@ Champion::Champion(int champion) {
                 CHAMPION[VAYNE_][4], CHAMPION[VAYNE_][5],
                 CHAMPION[VAYNE_][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(VAYNE_, Q);
-            this->spell[1] = new Spell(VAYNE_, W);
-            this->spell[2] = new Spell(VAYNE_, E);
-            this->spell[3] = new Spell(VAYNE_, R);
+            this->spell[0] = new Spell(VAYNE_, SPELL_Q);
+            this->spell[1] = new Spell(VAYNE_, SPELL_W);
+            this->spell[2] = new Spell(VAYNE_, SPELL_E);
+            this->spell[3] = new Spell(VAYNE_, SPELL_R);
             break;
     }
 }
