@@ -137,3 +137,21 @@ Attribute* Item::getAttribs() {
 string Item::getType() {
     return this->type;
 }
+
+void Item::applyItem(int value, vector<string> effects, bool area) {
+    if (name == "Infinity Edge") {
+        } else if (name == "Rabbadons") {
+    } else if (name == "Thornmail") {
+    } else if (name == "Spirity Visage") {
+    } else if (name == "Warmogs") {
+    } else if (name == "Seraph Embrace") {
+    } else if (name == "Boots") {
+    } else if (name == "Adaptive Helm") {
+    } else if (name == "Blade Ruined King") {
+    } else if (name == "Black Cleaver") {
+    } else if (name == "Liandry") {
+    } else if (name == "Banshee") {
+    } else if (name == "Runaans") {
+    } else if (name == "Trynity Force") {
+    }
+}

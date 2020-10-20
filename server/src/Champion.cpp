@@ -84,3 +84,12 @@ vector<Item> Champion::getItem() {
 Spell Champion::getSpell(int idx) {
     return this->spell[idx];
 }
+void Champion::applyItems(string type, int value, vector<string> effects) {
+    int valueR;
+    vector<string> effectsR;
+    for (int i = 0; i < this->item.size(); i++) {
+        if (item[i].getType() == type) {
+            //Aplicar efeito de 1 item especifico
+        }
+    }
+}
