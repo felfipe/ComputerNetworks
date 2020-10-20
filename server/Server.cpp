@@ -114,3 +114,19 @@ struct instruction Server::waitForInstruction(Player *player) {
     recv(player->getSocket(), &instruction.target, sizeof(int), 0);
     return instruction;
 }
+
+void Server::sendStatusBroadcast(int id_next_player) {
+    struct status status;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            status.life = this->player[j]->getChampion()->getAttribs()->getLife();
+            status.mana = this->player[j]->getChampion()->getAttribs()->getMana();
+            status.armor = this->player[j]->getChampion()->getAttribs()->getArmor();
+            status.atackDamage = this->player[j]->getChampion()->getAttribs()->getAttackDamage();
+            status.habilityPower = this->player[j]->getChampion()->getAttribs()->getAbilityPower();
+            status.medicResist = this->player[j]->getChampion()->getAttribs()->getMagicResist();
+            status.your_turn = id_next_player;
+            send(player[i]->getSocket(), &status, sizeof(struct status), 0);
+        }
+    }
+}

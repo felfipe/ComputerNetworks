@@ -22,6 +22,7 @@ class Server {
     void closeConnection();
     void setUpPlayer(int socket_client, int cli_id);
     void sendPlayers();
+    void sendStatusBroadcast(int id_next_player);
     int sendMessageBroadcast(int socket_client, char* message);
     int sendMessage(int socket_client, char* message);
     struct instruction waitForInstruction(Player* player);

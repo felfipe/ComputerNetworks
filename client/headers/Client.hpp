@@ -15,6 +15,8 @@ class Client {
     void receivePlayers();
     vector<Player*> getPlayerslist();
     void setUpClient(char* nickname, int championId, int* item);
+    void sendInstruction(int instruction, int target);
+    void waitForServer();
 
    private:
     /*static void* connection_sender(void* clientFd);

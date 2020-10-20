@@ -77,4 +77,14 @@ struct instruction {
     int target;
 };
 
+struct status {
+    int habilityPower;
+    int atackDamage;
+    int life;
+    int mana;
+    int armor;
+    int medicResist;
+    int your_turn;
+};
+
 #endif
