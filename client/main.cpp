@@ -4,6 +4,50 @@
 
 vector<Player*> playerList;
 
+int selectChampion();
+int selectItem();
+void makePlay();
+int selectTarget();
+
+int main() {
+    cout << "O JOGO v1.0" << endl;
+
+    char nickname[MAX_NICKNAME];
+    int championId;
+    vector<int> items;
+
+    cout << "Enter your nickname: ";
+    cin >> nickname;
+    cout << endl;
+
+    do {
+        championId = selectChampion();
+        cout << endl;
+    } while (championId < 0 || championId > 5);
+
+    while (items.size() < MAX_ITEMS) {
+        int item;
+        do {
+            item = selectItem();
+            cout << endl;
+        } while (item < 0 || item > 14);
+        items.push_back(item);
+    }
+
+    Client* client = new Client("127.0.0.1", 8888);
+    int* arrItem = (int*)malloc(items.size() * sizeof(int));
+    for (int i = 0; i < items.size(); i++) {
+        arrItem[i] = items[i];
+    }
+
+    client->setUpClient(nickname, championId, arrItem);
+    cout << "Waiting to start . . ." << endl;
+    client->receivePlayers();
+    playerList = client->getPlayerslist();
+
+    return 0;
+}
+
 int selectChampion() {
     cout << "|----------------------------------|" << endl;
     cout << "|   | NAME   | TYPE                |" << endl;
@@ -50,58 +94,33 @@ int selectItem() {
 }
 
 void makePlay() {
-    cout << "|-------------------------------------|" << endl;
-    cout << "|    | ACTION       | DESCRIPTION (?) |" << endl;
-    cout << "|----|--------------|-----------------|" << endl;
-    cout << "|  0 | Spell Q      |                 |" << endl;
-    cout << "|  1 | Spell W      |                 |" << endl;
-    cout << "|  2 | Spell E      |                 |" << endl;
-    cout << "|  3 | Spell R      |                 |" << endl;
-    cout << "|  4 | Basic Attack |                 |" << endl;
-    cout << "|  5 | Skip         |                 |" << endl;
-    cout << "|-------------------|-----------------|" << endl;
+    cout << "|--------------------------------------|" << endl;
+    cout << "|     | ACTION       | DESCRIPTION (?) |" << endl;
+    cout << "|-----|--------------|-----------------|" << endl;
+    cout << "|  0  | Spell Q      |                 |" << endl;
+    cout << "|  1  | Spell W      |                 |" << endl;
+    cout << "|  2  | Spell E      |                 |" << endl;
+    cout << "|  3  | Spell R      |                 |" << endl;
+    cout << "|  4  | Basic Attack |                 |" << endl;
+    cout << "|  5  | Skip         |                 |" << endl;
+    cout << "|--------------------|-----------------|" << endl;
     cout << "| Select your Action: ";
-    cout << "|-------------------------------------|" << endl;
-
     int action;
     cin >> action;
+    cout << "|--------------------------------------|" << endl;
+    int target = selectTarget();
 }
 
-int main() {
-    cout << "O JOGO v1.0" << endl;
-
-    char nickname[MAX_NICKNAME];
-    int championId;
-    vector<int> items;
-
-    cout << "Enter your nickname: ";
-    cin >> nickname;
-    cout << endl;
-
-    do {
-        championId = selectChampion();
-        cout << endl;
-    } while (championId < 0 || championId > 5);
-
-    while (items.size() < MAX_ITEMS) {
-        int item;
-        do {
-            item = selectItem();
-            cout << endl;
-        } while (item < 0 || item > 14);
-        items.push_back(item);
+int selectTarget() {
+    printf("|--------------------------------------|\n");
+    printf("|   | TARGET                           |\n");
+    printf("|--------------------------------------|\n");
+    for (int i = 0; i < playerList.size(); i++) {
+        printf("| %d | %20s |\n", i, playerList[i]);
     }
-
-    Client* client = new Client("127.0.0.1", 8888);
-    int* arrItem = (int*)malloc(items.size() * sizeof(int));
-    for (int i = 0; i < items.size(); i++) {
-        arrItem[i] = items[i];
-    }
-
-    client->setUpClient(nickname, championId, arrItem);
-    cout << "Waiting to start . . ." << endl;
-    client->receivePlayers();
-    playerList = client->getPlayerslist();
-
-    return 0;
+    printf("|Select your Target: ");
+    int target;
+    cin >> target;
+    printf("|--------------------------------------|\n");
+    return target;
 }
