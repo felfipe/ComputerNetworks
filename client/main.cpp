@@ -1,3 +1,4 @@
+#include "headers/Client.hpp"
 #include "headers/Globals.hpp"
 
 int selectChampion() {
@@ -45,12 +46,30 @@ int selectItem() {
     return 0;
 }
 
+void makePlay() {
+    cout << "|-------------------------------------|" << endl;
+    cout << "|    | ACTION       | DESCRIPTION (?) |" << endl;
+    cout << "|----|--------------|-----------------|" << endl;
+    cout << "|  0 | Spell Q      |                 |" << endl;
+    cout << "|  1 | Spell W      |                 |" << endl;
+    cout << "|  2 | Spell E      |                 |" << endl;
+    cout << "|  3 | Spell R      |                 |" << endl;
+    cout << "|  4 | Basic Attack |                 |" << endl;
+    cout << "|  5 | Skip         |                 |" << endl;
+    cout << "|-------------------|-----------------|" << endl;
+    cout << "| Select your Action: ";
+    cout << "|-------------------------------------|" << endl;
+
+    int action;
+    cin >> action;
+}
+
 int main() {
     cout << "O JOGO v1.0" << endl;
 
-    string nickname;
+    char nickname[256];
     int championId;
-    set<int> items;
+    vector<int> items;
 
     cout << "Enter your nickname: ";
     cin >> nickname;
@@ -67,9 +86,15 @@ int main() {
             item = selectItem();
             cout << endl;
         } while (item < 0 || item > 14);
-        items.insert(item);
+        items.push_back(item);
     }
 
-    
+    Client* client = new Client("127.0.0.1", 8888);
+    int* arrItem = (int*)malloc(items.size() * sizeof(int));
+    for (int i = 0; i < items.size(); i++) {
+        arrItem[i] = items[i];
+    }
+    client->setUpClient(nickname, championId, arrItem);
+
     return 0;
 }

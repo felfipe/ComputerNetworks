@@ -42,7 +42,7 @@ Client::Client(string address, int port) {
         cout << "[ERROR] Invalid Address" << endl;
         return;
     }
-    if (connect(socketFd, (struct sockaddr *)&server, sizeof(server))) {  // try to connect to server
+    if (connect(socketFd, (struct sockaddr*)&server, sizeof(server))) {  // try to connect to server
         cout << "[ERROR] Connection Failed" << endl;
         return;
     }
@@ -54,19 +54,8 @@ Client::Client(string address, int port) {
     return;
 }
 
-void Client::setUpClient() {
-    char nome[256];
-    int champion;
-    int item[2];
-    cout << "Type your nickname: ";
-    cin >> nome;
-    cout << endl
-              << "Chose your champion: ";
-
-    cin >> champion;
-    cin >> item[0];
-    cin >> item[1];
-    send(this->socketFd, nome, sizeof(nome), 0);
-    send(this->socketFd, &champion, sizeof(int), 0);
+void Client::setUpClient(char* nickname, int championId, int* item) {
+    send(this->socketFd, nickname, sizeof(nickname), 0);
+    send(this->socketFd, &championId, sizeof(int), 0);
     send(this->socketFd, &item, 2 * sizeof(int), 0);
 }

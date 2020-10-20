@@ -10,7 +10,7 @@ class Client {
     struct sockaddr_in server;
     thread th_socket_listener;
     thread th_socket_sender;
-    void setUpClient();
+    void setUpClient(char* nickname, int championId, int* item);
 
    private:
     /*static void* connection_sender(void* clientFd);
