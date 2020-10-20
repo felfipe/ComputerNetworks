@@ -18,7 +18,9 @@ int Attribute::getArmor() {
 int Attribute::getAttackDamage() {
     return this->attackDamage;
 }
-
+int Attribute::getRegenMana() {
+    return this->regenMana;
+}
 int Attribute::getAbilityPower() {
     return this->abilityPower;
 }
