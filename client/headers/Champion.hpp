@@ -1,24 +1,23 @@
 #ifndef CHAMPION_H
 #define CHAMPION_H
 
-#include "Attributes.hpp"
+#include "Attribute.hpp"
 #include "Globals.hpp"
 #include "Spell.hpp"
 
 class Champion {
    private:
-    Attributes *attribs;
+    int id;
+    Attribute *attribs;
     string name;
-    string type;
-    vector<Spell> spells;
-    /* data */
+    int type;
+
    public:
     Champion(int championId);
-    Attributes *getAttributes();
+    Attribute *getAttribute();
     string getName();
-    string getType();
-    vector<Spell> getSpells();
-    void setAttributes(Attributes *attribs);
+    int getType();
+    void setAttribute(Attribute *attribs);
 };
 
 #endif

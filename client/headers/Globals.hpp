@@ -39,6 +39,14 @@ using namespace std;
 #define TRINITY_FORCE 12
 #define REDEMPTION 13
 
+// Champion's type
+#define TANK 1
+#define ASSASSIN 2
+#define ADCARRY 3
+#define BRUISER 4
+#define SUPPORT 5
+#define CONTROL_MAGE 6
+
 #define MAX_ITEMS 2
 #define MAX_NICKNAME 20
 

@@ -1,6 +1,6 @@
 #ifndef ITEM_H
 #define ITEM_H
-#include "Attributes.hpp"
+#include "Attribute.hpp"
 #include "Globals.hpp"
 
 class Item {
@@ -8,14 +8,14 @@ class Item {
     int id;
     string name;
     string description;
-    Attributes *attribs;
+    Attribute *attribs;
     /* data */
    public:
-    Item(int id, string name, string description, Attributes *attribs);
+    Item(int id, string name, string description, Attribute *attribs);
     int getId();
     string getName();
     string getDescription();
-    Attributes *getAttributes();
+    Attribute *getAttribute();
 };
 
 #endif

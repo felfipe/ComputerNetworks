@@ -33,7 +33,7 @@ Champion::Champion(int champion) {
                 CHAMPION[DARIUS][2], CHAMPION[DARIUS][3],
                 CHAMPION[DARIUS][4], CHAMPION[DARIUS][5],
                 CHAMPION[DARIUS][6], CHAMPION[DARIUS][7]);
-            this->type = TANK;
+            this->type = BRUISER;
             this->spell[0] = new Spell(DARIUS, SPELL_Q);
             this->spell[1] = new Spell(DARIUS, SPELL_W);
             this->spell[2] = new Spell(DARIUS, SPELL_E);
@@ -46,7 +46,7 @@ Champion::Champion(int champion) {
                 CHAMPION[RYZE][2], CHAMPION[RYZE][3],
                 CHAMPION[RYZE][4], CHAMPION[RYZE][5],
                 CHAMPION[RYZE][6], CHAMPION[RYZE][7]);
-            this->type = TANK;
+            this->type = CONTROL_MAGE;
             this->spell[0] = new Spell(RYZE, SPELL_Q);
             this->spell[1] = new Spell(RYZE, SPELL_W);
             this->spell[2] = new Spell(RYZE, SPELL_E);
@@ -59,7 +59,7 @@ Champion::Champion(int champion) {
                 CHAMPION[ASHE][2], CHAMPION[ASHE][3],
                 CHAMPION[ASHE][4], CHAMPION[ASHE][5],
                 CHAMPION[ASHE][6], CHAMPION[ASHE][7]);
-            this->type = TANK;
+            this->type = ADCARRY;
             this->spell[0] = new Spell(ASHE, SPELL_Q);
             this->spell[1] = new Spell(ASHE, SPELL_W);
             this->spell[2] = new Spell(ASHE, SPELL_E);
@@ -72,7 +72,7 @@ Champion::Champion(int champion) {
                 CHAMPION[LULU][2], CHAMPION[LULU][3],
                 CHAMPION[LULU][4], CHAMPION[LULU][5],
                 CHAMPION[LULU][6], CHAMPION[LULU][7]);
-            this->type = TANK;
+            this->type = SUPPORT;
             this->spell[0] = new Spell(LULU, SPELL_Q);
             this->spell[1] = new Spell(LULU, SPELL_W);
             this->spell[2] = new Spell(LULU, SPELL_E);
@@ -85,7 +85,7 @@ Champion::Champion(int champion) {
                 CHAMPION[TALON][2], CHAMPION[TALON][3],
                 CHAMPION[TALON][4], CHAMPION[TALON][5],
                 CHAMPION[TALON][6], CHAMPION[TALON][7]);
-            this->type = TANK;
+            this->type = ASSASSIN;
             this->spell[0] = new Spell(TALON, SPELL_Q);
             this->spell[1] = new Spell(TALON, SPELL_W);
             this->spell[2] = new Spell(TALON, SPELL_E);
@@ -93,6 +93,7 @@ Champion::Champion(int champion) {
             break;
     }
 }
+
 int Champion::getId() {
     return this->id;
 }

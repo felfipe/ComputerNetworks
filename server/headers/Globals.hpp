@@ -27,9 +27,12 @@ using namespace std;
 #define SPELL_R 3
 
 // Champion's type
-#define TANK 0
-#define MAGE 1
-#define ADCARRY 2
+#define TANK 1
+#define ASSASSIN 2
+#define ADCARRY 3
+#define BRUISER 4
+#define SUPPORT 5
+#define CONTROL_MAGE 6
 
 #define INFINITY_EDGE 0        // Buff no ataque basico -> 1.x * AD
 #define RABBADONS_DEATH_CAP 1  // Buff nas skills -> 1.x * AP

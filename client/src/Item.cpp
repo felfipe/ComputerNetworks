@@ -1,6 +1,6 @@
 #include "../headers/Item.hpp"
 
-Item::Item(int id, string name, string description, Attributes* attribs) {
+Item::Item(int id, string name, string description, Attribute* attribs) {
     this->attribs = attribs;
     this->description = description;
 }
@@ -13,6 +13,6 @@ string Item::getName() {
 string Item::getDescription() {
     return this->description;
 }
-Attributes* Item::getAttributes() {
+Attribute* Item::getAttribute() {
     return this->attribs;
 }

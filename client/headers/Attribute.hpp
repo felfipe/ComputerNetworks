@@ -1,7 +1,7 @@
-#ifndef ATTRIBUTES_H
-#define ATTRIBUTES_H
+#ifndef ATTRIBUTE_H
+#define ATTRIBUTE_H
 
-class Attributes {
+class Attribute {
    private:
     int life;
     int mana;
@@ -10,9 +10,10 @@ class Attributes {
     int armor;
     int magicResistence;
     int speed;
-    /* data */
+    int regenMana;
+
    public:
-    Attributes(int life, int atackDamage, int abilityPower, int armor, int magicResistence, int speed, int mana);
+    Attribute(int life, int atackDamage, int abilityPower, int armor, int magicResistence, int speed, int mana, int regenMana);
     int getLife();
     int getMana();
     int getAtackDamage();
@@ -20,6 +21,7 @@ class Attributes {
     int getArmor();
     int getMagicResistence();
     int getSpeed();
+    int getRegenMana();
 
     void setLife(int life);
     void setMana(int mana);
