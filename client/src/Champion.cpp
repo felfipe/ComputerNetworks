@@ -1,6 +1,14 @@
 #include "../headers/Champion.hpp"
 
-Champion::Champion(string name, Attributes *attribs, string type, vector<Spell> spells) {
+int CHAMPION[6][8] = {
+    {0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0}};
+
+Champion::Champion(int championId) {
     this->attribs = attribs;
     this->name = name;
     this->type = type;

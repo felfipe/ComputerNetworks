@@ -6,9 +6,10 @@ class Attribute {
     int attackDamage, abilityPower;
     int armor, magicResist;
     int life, mana, speed;
+    int regenMana;
 
    public:
-    Attribute(int attackDamage, int abilityPower, int armor, int magicResist, int life, int mana, int speed);
+    Attribute(int attackDamage, int abilityPower, int armor, int magicResist, int life, int mana, int speed, int regenMana);
     int getArmor();
     int getAttackDamage();
     int getAbilityPower();
@@ -16,6 +17,7 @@ class Attribute {
     int getLife();
     int getSpeed();
     int getMana();
+    int getRegenMana();
 
     void setArmor(int armor);
     void setAttackDamage(int attackDamage);
