@@ -42,7 +42,7 @@ void Player::setDamage(vector<Champion *> champions, int action, int target, int
         //agora os valores de value, effects e area Effect ja estão basta causa esse dano ao target ou aos targets
         if (this->champion->getAttribs()->getMana() <= mana) {
             //not enought mana
-            return
+            return;
         }
         //termina o ataque
     }
