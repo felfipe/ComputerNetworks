@@ -22,6 +22,7 @@ class Champion {
     void setEffects(vector<string> effects);
     Attribute* getAttribs();
     Spell* getSpell(int idx);
+    void applyItems(string type, int value, vector<string> effects);
 };
 
 #endif

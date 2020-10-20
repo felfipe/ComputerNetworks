@@ -16,6 +16,7 @@ class Item {
     string getDescription();
     Attribute* getAttribs();
     string getType();
+    void applyItem(int value, vector<string> effects, bool area);
 };
 
 #endif
