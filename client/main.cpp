@@ -99,6 +99,6 @@ int main() {
     }
 
     client->setUpClient(nickname, championId, arrItem);
-
+    client->receivePlayers();
     return 0;
 }
