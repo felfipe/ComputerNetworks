@@ -103,7 +103,7 @@ string Champion::getName() {
     return this->name;
 }
 
-Attribute* Champion::getAttribs() {
+Attribute *Champion::getAttribs() {
     return this->attribs;
 }
 
@@ -122,16 +122,16 @@ void Champion::getHealed(int heal) {
     this->getAttribs()->setLife(this->getAttribs()->getLife() + heal);
 }
 
-vector<Item*> Champion::getItem() {
+vector<Item *> Champion::getItem() {
     return this->item;
 }
 
-Spell* Champion::getSpell(int idx) {
+Spell *Champion::getSpell(int idx) {
     return this->spell[idx];
 }
 
 void Champion::setItem(int itemId) {
-    Item* item = new Item(itemId);
+    Item *item = new Item(itemId);
     this->getAttribs()->setAbilityPower(item->getAttribs()->getAbilityPower());
     this->getAttribs()->setArmor(item->getAttribs()->getArmor());
     this->getAttribs()->setAttackDamage(item->getAttribs()->getAttackDamage());
@@ -143,7 +143,7 @@ void Champion::setItem(int itemId) {
 }
 
 // attack or defense
-void Champion::applyItems(int type, int mana, int value, set<string> effects, bool areaEffects, int turn) {
+void Champion::applyItems(int &type, int &mana, int &value, set<string> &effects, bool &areaEffects, int turn) {
     int valueR;
     vector<string> effectsR;
     for (int i = 0; i < this->item.size(); i++) {

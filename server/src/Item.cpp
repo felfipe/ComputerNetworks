@@ -148,14 +148,14 @@ string Item::getDescription() {
     return this->description;
 }
 
-Attribute* Item::getAttribs() {
+Attribute *Item::getAttribs() {
     return this->attribs;
 }
 int Item::getType() {
     return this->type;
 }
 
-void Item::applyItem(int value, int mana, set<string> effects, bool area, int turn) {
+void Item::applyItem(int &value, int &mana, set<string> &effects, bool &area, int turn) {
     int valueR = value;
     int manaR = mana;
     bool areaR = areaR;
