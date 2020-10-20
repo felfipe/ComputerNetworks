@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     Server* server = new Server(8888, 4);
     server->listenForClients();
     server->sendPlayers();
-    vector<Player> players;
+    vector<Player*> players;
     Player* currentPlayer;
     struct instruction action;
     struct moviment move;
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
                 //impacta em todos os players
             } else {
                 //impacto apenas no target
-                        }
+            }
             //wait for instruction
         }
     }
