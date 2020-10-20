@@ -11,7 +11,7 @@ class Champion {
     Spell* spell[4];
 
    public:
-    Champion(string name);
+    Champion(int champion);
     string getName();
     int getType();
     vector<Item> getItem();
