@@ -1,5 +1,8 @@
 #include "headers/Client.hpp"
 #include "headers/Globals.hpp"
+#include "headers/Player.hpp"
+
+vector<Player> playerList;
 
 int selectChampion() {
     cout << "|----------------------------------|" << endl;
@@ -67,7 +70,7 @@ void makePlay() {
 int main() {
     cout << "O JOGO v1.0" << endl;
 
-    char nickname[256];
+    char nickname[MAX_NICKNAME];
     int championId;
     vector<int> items;
 
@@ -94,6 +97,7 @@ int main() {
     for (int i = 0; i < items.size(); i++) {
         arrItem[i] = items[i];
     }
+
     client->setUpClient(nickname, championId, arrItem);
 
     return 0;

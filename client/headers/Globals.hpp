@@ -12,6 +12,7 @@
 #include <string>
 #include <thread>
 #include <vector>
+
 using namespace std;
 
 // Champions
@@ -39,5 +40,6 @@ using namespace std;
 #define REDEMPTION 13
 
 #define MAX_ITEMS 2
+#define MAX_NICKNAME 20
 
 #endif

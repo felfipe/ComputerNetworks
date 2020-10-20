@@ -67,7 +67,7 @@ void Server::listenForClients() {
 
 void Server::setUpPlayer(int socket_client, int cli_id) {
     char name_c[256];
-    recv(socket_client, name_c, 256, 0);
+    recv(socket_client, name_c, 20, 0);
     int champion;
     recv(socket_client, &champion, sizeof(int), 0);
     int item[2];
@@ -101,7 +101,7 @@ void Server::sendPlayers() {
             item[1] = player[j]->getChampion()->getItem()[1]->getId();
             std::cout << name << champion << item[0] << item[1];
             send(player[i]->getSocket(), &i, sizeof(int), 0);
-            send(player[i]->getSocket(), &name, 20, 0);
+            send(player[i]->getSocket(), &name, strlen(name), 0);
             send(player[i]->getSocket(), &champion, sizeof(int), 0);
             send(player[i]->getSocket(), &item, 2 * sizeof(int), 0);
         }

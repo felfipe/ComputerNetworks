@@ -1,8 +1,20 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-class Player{
-    
+#include "Champion.hpp"
+#include "Globals.hpp"
+
+class Player {
+   private:
+    int id;
+    string nickname;
+    Champion* champion;
+
+   public:
+    Player(int id, string name, int championId);
+    int getId();
+    string getNickname();
+    Champion* getChampion();
 };
 
 #endif

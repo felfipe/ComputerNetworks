@@ -1,5 +1,6 @@
-#ifndef Champion_H
-#define Champion_H
+#ifndef CHAMPION_H
+#define CHAMPION_H
+
 #include "Attributes.hpp"
 #include "Globals.hpp"
 #include "Spell.hpp"
@@ -12,7 +13,7 @@ class Champion {
     vector<Spell> spells;
     /* data */
    public:
-    Champion(string name, Attributes *attribs, string type, vector<Spell> spells);
+    Champion(int championId);
     Attributes *getAttributes();
     string getName();
     string getType();
