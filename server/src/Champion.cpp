@@ -135,11 +135,12 @@ void Champion::setItem(int itemId) {
 }
 
 // attack or defense
-void Champion::applyItems(string type, int value, vector<string> effects) {
+void Champion::applyItems(int type, int mana, int value, set<string> effects, bool areaEffects, int turn) {
     int valueR;
     vector<string> effectsR;
     for (int i = 0; i < this->item.size(); i++) {
         if (item[i]->getType() == type) {
+            item[i]->applyItem(value, mana, effects, areaEffects, turn);
             //Aplicar efeito de 1 item especifico
         }
     }

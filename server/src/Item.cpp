@@ -150,7 +150,7 @@ string Item::getDescription() {
 Attribute* Item::getAttribs() {
     return this->attribs;
 }
-string Item::getType() {
+int Item::getType() {
     return this->type;
 }
 

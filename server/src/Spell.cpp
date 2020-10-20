@@ -39,7 +39,7 @@ string Spell::getEffect() {
     return this->effect;
 }
 
-string Spell::getType() {
+int Spell::getType() {
     return this->type;
 }
 
