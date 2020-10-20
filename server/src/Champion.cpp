@@ -11,83 +11,83 @@ int CHAMPION[6][7] = {
 
 Champion::Champion(int champion) {
     switch (champion) {
-        case GAREN_:
+        case GAREN:
             this->name = "Garen";
             this->attribs = new Attribute(
-                CHAMPION[GAREN_][0], CHAMPION[GAREN_][1],
-                CHAMPION[GAREN_][2], CHAMPION[GAREN_][3],
-                CHAMPION[GAREN_][4], CHAMPION[GAREN_][5],
-                CHAMPION[GAREN_][6]);
+                CHAMPION[GAREN][0], CHAMPION[GAREN][1],
+                CHAMPION[GAREN][2], CHAMPION[GAREN][3],
+                CHAMPION[GAREN][4], CHAMPION[GAREN][5],
+                CHAMPION[GAREN][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(GAREN_, SPELL_Q);
-            this->spell[1] = new Spell(GAREN_, SPELL_W);
-            this->spell[2] = new Spell(GAREN_, SPELL_E);
-            this->spell[3] = new Spell(GAREN_, SPELL_R);
+            this->spell[0] = new Spell(GAREN, SPELL_Q);
+            this->spell[1] = new Spell(GAREN, SPELL_W);
+            this->spell[2] = new Spell(GAREN, SPELL_E);
+            this->spell[3] = new Spell(GAREN, SPELL_R);
             break;
-        case DARIUS_:
+        case DARIUS:
             this->name = "Darius";
             this->attribs = new Attribute(
-                CHAMPION[DARIUS_][0], CHAMPION[DARIUS_][1],
-                CHAMPION[DARIUS_][2], CHAMPION[DARIUS_][3],
-                CHAMPION[DARIUS_][4], CHAMPION[DARIUS_][5],
-                CHAMPION[DARIUS_][6]);
+                CHAMPION[DARIUS][0], CHAMPION[DARIUS][1],
+                CHAMPION[DARIUS][2], CHAMPION[DARIUS][3],
+                CHAMPION[DARIUS][4], CHAMPION[DARIUS][5],
+                CHAMPION[DARIUS][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(DARIUS_, SPELL_Q);
-            this->spell[1] = new Spell(DARIUS_, SPELL_W);
-            this->spell[2] = new Spell(DARIUS_, SPELL_E);
-            this->spell[3] = new Spell(DARIUS_, SPELL_R);
+            this->spell[0] = new Spell(DARIUS, SPELL_Q);
+            this->spell[1] = new Spell(DARIUS, SPELL_W);
+            this->spell[2] = new Spell(DARIUS, SPELL_E);
+            this->spell[3] = new Spell(DARIUS, SPELL_R);
             break;
-        case RYZE_:
+        case RYZE:
             this->name = "Ryze";
             this->attribs = new Attribute(
-                CHAMPION[RYZE_][0], CHAMPION[RYZE_][1],
-                CHAMPION[RYZE_][2], CHAMPION[RYZE_][3],
-                CHAMPION[RYZE_][4], CHAMPION[RYZE_][5],
-                CHAMPION[RYZE_][6]);
+                CHAMPION[RYZE][0], CHAMPION[RYZE][1],
+                CHAMPION[RYZE][2], CHAMPION[RYZE][3],
+                CHAMPION[RYZE][4], CHAMPION[RYZE][5],
+                CHAMPION[RYZE][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(RYZE_, SPELL_Q);
-            this->spell[1] = new Spell(RYZE_, SPELL_W);
-            this->spell[2] = new Spell(RYZE_, SPELL_E);
-            this->spell[3] = new Spell(RYZE_, SPELL_R);
+            this->spell[0] = new Spell(RYZE, SPELL_Q);
+            this->spell[1] = new Spell(RYZE, SPELL_W);
+            this->spell[2] = new Spell(RYZE, SPELL_E);
+            this->spell[3] = new Spell(RYZE, SPELL_R);
             break;
-        case ASHE_:
+        case ASHE:
             this->name = "Ashe";
             this->attribs = new Attribute(
-                CHAMPION[ASHE_][0], CHAMPION[ASHE_][1],
-                CHAMPION[ASHE_][2], CHAMPION[ASHE_][3],
-                CHAMPION[ASHE_][4], CHAMPION[ASHE_][5],
-                CHAMPION[ASHE_][6]);
+                CHAMPION[ASHE][0], CHAMPION[ASHE][1],
+                CHAMPION[ASHE][2], CHAMPION[ASHE][3],
+                CHAMPION[ASHE][4], CHAMPION[ASHE][5],
+                CHAMPION[ASHE][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(ASHE_, SPELL_Q);
-            this->spell[1] = new Spell(ASHE_, SPELL_W);
-            this->spell[2] = new Spell(ASHE_, SPELL_E);
-            this->spell[3] = new Spell(ASHE_, SPELL_R);
+            this->spell[0] = new Spell(ASHE, SPELL_Q);
+            this->spell[1] = new Spell(ASHE, SPELL_W);
+            this->spell[2] = new Spell(ASHE, SPELL_E);
+            this->spell[3] = new Spell(ASHE, SPELL_R);
             break;
-        case LUX_:
+        case LUX:
             this->name = "Lux";
             this->attribs = new Attribute(
-                CHAMPION[LUX_][0], CHAMPION[LUX_][1],
-                CHAMPION[LUX_][2], CHAMPION[LUX_][3],
-                CHAMPION[LUX_][4], CHAMPION[LUX_][5],
-                CHAMPION[LUX_][6]);
+                CHAMPION[LUX][0], CHAMPION[LUX][1],
+                CHAMPION[LUX][2], CHAMPION[LUX][3],
+                CHAMPION[LUX][4], CHAMPION[LUX][5],
+                CHAMPION[LUX][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(LUX_, SPELL_Q);
-            this->spell[1] = new Spell(LUX_, SPELL_W);
-            this->spell[2] = new Spell(LUX_, SPELL_E);
-            this->spell[3] = new Spell(LUX_, SPELL_R);
+            this->spell[0] = new Spell(LUX, SPELL_Q);
+            this->spell[1] = new Spell(LUX, SPELL_W);
+            this->spell[2] = new Spell(LUX, SPELL_E);
+            this->spell[3] = new Spell(LUX, SPELL_R);
             break;
-        case VAYNE_:
+        case VAYNE:
             this->name = "Vayne";
             this->attribs = new Attribute(
-                CHAMPION[VAYNE_][0], CHAMPION[VAYNE_][1],
-                CHAMPION[VAYNE_][2], CHAMPION[VAYNE_][3],
-                CHAMPION[VAYNE_][4], CHAMPION[VAYNE_][5],
-                CHAMPION[VAYNE_][6]);
+                CHAMPION[VAYNE][0], CHAMPION[VAYNE][1],
+                CHAMPION[VAYNE][2], CHAMPION[VAYNE][3],
+                CHAMPION[VAYNE][4], CHAMPION[VAYNE][5],
+                CHAMPION[VAYNE][6]);
             this->type = TANK;
-            this->spell[0] = new Spell(VAYNE_, SPELL_Q);
-            this->spell[1] = new Spell(VAYNE_, SPELL_W);
-            this->spell[2] = new Spell(VAYNE_, SPELL_E);
-            this->spell[3] = new Spell(VAYNE_, SPELL_R);
+            this->spell[0] = new Spell(VAYNE, SPELL_Q);
+            this->spell[1] = new Spell(VAYNE, SPELL_W);
+            this->spell[2] = new Spell(VAYNE, SPELL_E);
+            this->spell[3] = new Spell(VAYNE, SPELL_R);
             break;
     }
 }
