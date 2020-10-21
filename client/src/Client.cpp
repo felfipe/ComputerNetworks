@@ -69,6 +69,7 @@ int Client::setUpClient(char* nickname, int championId, int* item) {
 
     int myId;
     recv(this->socketFd, &myId, sizeof(int), 0);
+    return myId;
 }
 
 void Client::receivePlayers() {

@@ -82,6 +82,8 @@ void Server::setUpPlayer(int socket_client, int cli_id) {
     std::cout << " / Champion: " << this->player[cli_id]->getChampion()->getName();
     std::cout << " / Item 0: " << this->player[cli_id]->getChampion()->getItem()[0]->getName();
     std::cout << " / Item 1: " << this->player[cli_id]->getChampion()->getItem()[1]->getName() << std::endl;
+
+    send(socket_client, &cli_id, sizeof(int), 0);
     return;
 }
 void Server::closeConnection() {
