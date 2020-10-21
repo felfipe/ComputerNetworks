@@ -50,7 +50,11 @@ struct moviment Player::setDamage(int action, int turn) {
         move.value = value;
         move.areaEffect = areaEffect;
         move.effects = effects;
-        this->champion->getAttribs()->setMana(this->champion->getAttribs()->getMana() - mana);
+        if (this->champion->getAttribs()->getMana() - mana < 0) {
+            this->champion->getAttribs()->setMana(0);
+        } else {
+            this->champion->getAttribs()->setMana(this->champion->getAttribs()->getMana() - mana);
+        }
         //agora os valores de value, effects e area Effect ja estão basta causa esse dano ao target ou aos targets
         //termina o ataque
     }
