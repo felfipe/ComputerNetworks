@@ -140,3 +140,9 @@ void Server::sendStatusBroadcast(int id_next_player) {
         }
     }
 }
+
+void Server::sendMessageBroadcast(char *message) {
+    for (int i = 0; i < MAX_CONNECTIONS; i++) {
+        send(this->getPlayers()[i]->getSocket(), message, 128, 0);
+    }
+}
