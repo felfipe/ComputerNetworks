@@ -82,8 +82,7 @@ void Client::receivePlayers() {
         recv(this->socketFd, &nickname, MAX_NICKNAME, 0);
         recv(this->socketFd, &champion, sizeof(int), 0);
         recv(this->socketFd, item, MAX_ITEMS * sizeof(int), 0);
-        Player* player = new Player(idPlayer, nickname, champion, item[0], item[1]);
-        this->playerList.push_back(player);
+        this->playerList.push_back(new Player(idPlayer, nickname, champion, item[0], item[1]));
         cout << "Player" << i << ": " << nickname << ", Champion: " << champion
              << ", Item 0: " << item[0] << ", Item 1: " << item[1] << endl;
     }

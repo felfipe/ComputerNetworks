@@ -4,6 +4,7 @@ Player::Player(int id, string name, int championId, int itemId1, int itemId2) {
     this->id = id;
     this->nickname = nickname;
     this->champion = new Champion(championId);
+    this->attribs = new Attribute(0, 0, 0, 0, 0, 0, 0, 0);
 }
 
 int Player::getId() {
