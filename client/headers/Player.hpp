@@ -18,6 +18,8 @@ class Player {
     Attribute* getAttribs();
     string getNickname();
     Champion* getChampion();
+    void killPlayer();
+    bool getActive();
 };
 
 #endif

@@ -125,8 +125,11 @@ int selectTarget() {
     printf("|--------------------------|\n");
     printf("|   | TARGET               |\n");
     printf("|--------------------------|\n");
-    for (int i = 0; i < playerList.size(); i++) {
-        printf("| %d | %-20s |\n", i, playerList[i]->getNickname().c_str());
+    for (auto pp : playerList) {
+        if(pp->getActive())
+            printf("| %d | %-20s |\n", pp->getId(), pp->getNickname().c_str());
+        else 
+            printf("| x | %-20s |\n", pp->getNickname().c_str());
     }
     printf("|Select your Target: ");
     int target;

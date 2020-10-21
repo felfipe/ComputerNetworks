@@ -72,6 +72,7 @@ bool Client::waitForServer(int myId) {
         this->playerList[i]->getAttribs()->setMagicResistence(status.medicResist);
         this->playerList[i]->getAttribs()->setAbilityPower(status.habilityPower);
         this->playerList[i]->getAttribs()->setAtackDamage(status.atackDamage);
+        if (this->playerList[i]->getAttribs()->getLife() <= 0) this->playerList[i]->killPlayer();
         flag = (myId == status.your_turn);
     }
     return flag;

@@ -81,7 +81,8 @@ void Server::sendPlayers() {
             item[0] = this->playerlist[j]->getChampion()->getItem()[0]->getId();
             item[1] = this->playerlist[j]->getChampion()->getItem()[1]->getId();
             cout << name << " " << champion << " " << item[0] << " " << item[1];
-            send(this->playerlist[i]->getSocket(), &i, sizeof(int), 0);
+            int playerId = this->playerlist[i]->getId();
+            send(this->playerlist[i]->getSocket(), &playerId, sizeof(int), 0);
             send(this->playerlist[i]->getSocket(), &name, 20, 0);
             send(this->playerlist[i]->getSocket(), &champion, sizeof(int), 0);
             send(this->playerlist[i]->getSocket(), item, 2 * sizeof(int), 0);

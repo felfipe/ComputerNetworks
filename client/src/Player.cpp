@@ -23,6 +23,11 @@ Champion* Player::getChampion() {
 Attribute* Player::getAttribs() {
     return this->attribs;
 }
-void killPlayer() {
+
+void Player::killPlayer() {
     this->active = false;
+}
+
+bool Player::getActive(){
+    return this->active;
 }
