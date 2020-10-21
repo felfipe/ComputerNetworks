@@ -23,7 +23,7 @@ struct moviment Player::setDamage(int action, int turn) {
         value = BASICATTACKMULTIPLIER * this->champion->getAttribs()->getAttackDamage();
         itemType = ITEM_AUTO_ATTACK;
         this->champion->getAttribs()->setMana(this->champion->getAttribs()->getMana() + this->champion->getAttribs()->getRegenMana());
-        this->champion->applyItems(itemType, mana, value, effects, areaEffect, turn);
+        //this->champion->applyItems(itemType, mana, value, effects, areaEffect, turn);
         //montar o pacote de dano
         move.value = value;
         move.type = DAMAGE_SPELL;
@@ -41,7 +41,7 @@ struct moviment Player::setDamage(int action, int turn) {
             itemType = ITEM_SPELL_HEAL;
             move.type = HEAL_SPELL;
         }
-        this->champion->applyItems(itemType, mana, value, effects, areaEffect, turn);  //ajustar para ponteiros o correto
+        //this->champion->applyItems(itemType, mana, value, effects, areaEffect, turn);  //ajustar para ponteiros o correto
         move.value = value;
         move.areaEffect = areaEffect;
         move.effects = effects;

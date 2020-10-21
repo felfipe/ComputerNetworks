@@ -33,6 +33,27 @@ int main(int argc, char* argv[]) {
             currentPlayer = players[i];
             action = server->waitForInstruction(currentPlayer);
             move = currentPlayer->setDamage(action.type, turn);
+            if (move.areaEffect == true) {
+                for (int i = 0; i < MAX_CONNECTIONS; i++) {
+                    players[i]->getChampion()->getDamage(move.value, move.effects);
+                }
+                //impacta em todos os players
+            } else {
+                if (move.type == DAMAGE_SPELL) {
+                    for (int i = 0; i < MAX_CONNECTIONS; i++) {
+                        if (players[i]->getId() == action.target) {
+                            players[i]->getChampion()->getDamage(move.value, move.effects);
+                        }
+                    }
+                } else {
+                    for (int i = 0; i < MAX_CONNECTIONS; i++) {
+                        if (players[i]->getId() == action.target) {
+                            players[i]->getChampion()->getHealed(move.value);
+                        }
+                    }
+                }
+                //impacto apenas no target
+            }
             //wait for instruction
         }
     }

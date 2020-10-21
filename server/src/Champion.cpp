@@ -109,14 +109,14 @@ Attribute *Champion::getAttribs() {
     return this->attribs;
 }
 
-void Champion::getDamage(int value, vector<string> effects) {
+void Champion::getDamage(int value, set<string> effects) {
     int damage = value;
     //metodo para aplicador efeito dos itens de DEFESA e alterar o value
     this->getAttribs()->setLife(this->getAttribs()->getLife() - damage);
     this->setEffects(effects);
 }
 
-void Champion::setEffects(vector<string> effects) {
+void Champion::setEffects(set<string> effects) {
 }
 
 void Champion::getHealed(int heal) {
