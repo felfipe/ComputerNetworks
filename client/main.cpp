@@ -3,12 +3,14 @@
 #include "headers/Player.hpp"
 
 vector<Player*> playerList;
+Client* client;
 
 int selectChampion();
 int selectItem();
 void makePlay();
 int selectTarget();
-Client* client;
+void printPlayers();
+
 int main() {
     cout << "O JOGO v1.0" << endl;
 
@@ -46,6 +48,7 @@ int main() {
     playerList = client->getPlayerslist();
     while (true) {
         //print como estao jogs
+        printPlayers();
         if (client->waitForServer(myId)) {
             makePlay();
         }
@@ -118,15 +121,33 @@ void makePlay() {
 }
 
 int selectTarget() {
-    printf("|--------------------------------------|\n");
-    printf("|   | TARGET                           |\n");
-    printf("|--------------------------------------|\n");
+    printf("|--------------------------|\n");
+    printf("|   | TARGET               |\n");
+    printf("|--------------------------|\n");
     for (int i = 0; i < playerList.size(); i++) {
-        printf("| %d | %20s |\n", i, playerList[i]->getNickname().c_str());
+        printf("| %d | %-20s |\n", i, playerList[i]->getNickname().c_str());
     }
     printf("|Select your Target: ");
     int target;
     cin >> target;
-    printf("|--------------------------------------|\n");
+    printf("|--------------------------|\n");
     return target;
+}
+
+void printPlayers() {
+    cout << "|----------------------------------------------------------------|\n";
+    cout << "|        Player        | Life | Mana | Armo |  MR  |  AD  |  AP  |\n";
+    cout << "|----------------------------------------------------------------|\n";
+    for (int i = 0; i < playerList.size(); i++) {
+        cout << playerList[i]->getNickname() << endl;
+        printf("| %-20s | %4d | %4d | %4d | %4d | %4d | %4d |\n",
+               playerList[i]->getNickname().c_str(),
+               playerList[i]->getAttribs()->getLife(),
+               playerList[i]->getAttribs()->getMana(),
+               playerList[i]->getAttribs()->getArmor(),
+               playerList[i]->getAttribs()->getMagicResistence(),
+               playerList[i]->getAttribs()->getAtackDamage(),
+               playerList[i]->getAttribs()->getAbilityPower());
+    }
+    cout << "|----------------------------------------------------------------|\n";
 }
