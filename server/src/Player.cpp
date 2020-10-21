@@ -18,6 +18,7 @@ struct moviment Player::setDamage(int action, int turn) {
     set<string> effects;
     bool areaEffect = false;
     struct moviment move;
+    move.hasMana = true;
     // Jogada invalida
 
     if (action == AA) {
@@ -34,6 +35,9 @@ struct moviment Player::setDamage(int action, int turn) {
         value = this->champion->getSpell(action)->getValue();
         spellType = this->champion->getSpell(action)->getType();
         mana = this->champion->getSpell(action)->getManaCost();
+        if (mana > this->champion->getAttribs()->getMana()) {
+            move.hasMana = false;
+        }
         effects.insert(this->champion->getSpell(action)->getEffect());
         if (spellType == DAMAGE_SPELL) {
             itemType = ITEM_SPELL_DAMAGE;
@@ -46,6 +50,11 @@ struct moviment Player::setDamage(int action, int turn) {
         move.value = value;
         move.areaEffect = areaEffect;
         move.effects = effects;
+        if (this->champion->getAttribs()->getMana() - mana < 0) {
+            this->champion->getAttribs()->setMana(0);
+        } else {
+            this->champion->getAttribs()->setMana(this->champion->getAttribs()->getMana() - mana);
+        }
         //agora os valores de value, effects e area Effect ja estão basta causa esse dano ao target ou aos targets
         //termina o ataque
     }
