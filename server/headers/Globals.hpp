@@ -70,8 +70,8 @@ using namespace std;
 #define ITEM_TURN 4
 
 //spell's type
-#define HEAL_SPELL 0
-#define DAMAGE_SPELL 1
+#define HEAL_SPELL 1
+#define DAMAGE_SPELL 0
 
 struct instruction {
     int type;
