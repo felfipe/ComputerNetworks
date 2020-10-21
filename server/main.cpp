@@ -31,6 +31,7 @@ int main(int argc, char* argv[]) {
         turn++;
         for (int i = 0; i < MAX_CONNECTIONS; i++) {  //representa um turno
             currentPlayer = players[i];
+            server->sendStatusBroadcast(players[i]->getId());
             action = server->waitForInstruction(currentPlayer);
             move = currentPlayer->setDamage(action.type, turn);
             if (move.areaEffect == true) {
