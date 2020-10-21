@@ -1,4 +1,4 @@
-#include "headers/Server.hpp"
+#include "../headers/Server.hpp"
 /*
 void *Server::connection_listener(void *clientFd) {
     int client = *((int *)clientFd);

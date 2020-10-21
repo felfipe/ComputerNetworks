@@ -2,6 +2,7 @@
 #define GLOBALS_H
 
 // Cpp imports
+#include <algorithm>
 #include <iostream>
 #include <set>
 #include <string>

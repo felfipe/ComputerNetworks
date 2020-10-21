@@ -1,6 +1,8 @@
+#include "headers/Globals.hpp"
 #include "headers/Server.hpp"
-bool compareSpeed(Player a, Player b) {
-    return !a.getChampion()->getAttribs()->getSpeed() < b.getChampion()->getAttribs()->getSpeed();
+
+bool compareSpeed(Player* a, Player* b) {
+    return !(a->getChampion()->getAttribs()->getSpeed() < b->getChampion()->getAttribs()->getSpeed());
 }
 
 int main(int argc, char* argv[]) {
@@ -14,12 +16,12 @@ int main(int argc, char* argv[]) {
     Server* server = new Server(8888, 4);
     server->listenForClients();
     server->sendPlayers();
-    vector<Player> players;
+    vector<Player*> players;
     Player* currentPlayer;
     struct instruction action;
     struct moviment move;
     for (int i = 0; i < MAX_CONNECTIONS; i++) {
-        players.push_back(server->getPlayers()[i])
+        players.push_back(server->getPlayers()[i]);
     }
     //neste ponto a lista de players esta ok na teoria
     sort(players.begin(), players.end(), compareSpeed);
@@ -28,9 +30,9 @@ int main(int argc, char* argv[]) {
         //representa a partida
         turn++;
         for (int i = 0; i < MAX_CONNECTIONS; i++) {  //representa um turno
-            currentPlayer = &players[i];
+            currentPlayer = players[i];
             action = server->waitForInstruction(currentPlayer);
-            move = currentPlayer->setDamage(action.type, turn)
+            move = currentPlayer->setDamage(action.type, turn);
             //wait for instruction
         }
     }
