@@ -1,11 +1,11 @@
 #include "../headers/Attribute.hpp"
 
 Attribute::Attribute(int attackDamage, int abilityPower, int armor, int magicResist, int life, int mana, int speed, int regenMana) {
+    this->attackDamage = attackDamage;
     this->abilityPower = abilityPower;
     this->armor = armor;
-    this->attackDamage = attackDamage;
-    this->life = life;
     this->magicResist = magicResist;
+    this->life = life;
     this->mana = mana;
     this->speed = speed;
     this->regenMana = regenMana;
