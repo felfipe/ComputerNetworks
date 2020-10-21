@@ -17,7 +17,7 @@ class Server {
    public:
     int socketFd;
 
-    Server(int port, int number_players);
+    Server(int port);
     void listenForClients();
     void closeConnection();
     void setUpPlayer(int socket_client, int cli_id);
@@ -30,7 +30,6 @@ class Server {
 
    private:
     Player* player[MAX_CONNECTIONS];
-    int number_players;
     struct sockaddr_in server;
     std::thread th_clients_listener[10];
     std::thread th_clients_sender[10];

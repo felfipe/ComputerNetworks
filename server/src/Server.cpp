@@ -24,8 +24,7 @@ void *Server::connection_sender(void *clientFd) {
     }
 }
 */
-Server::Server(int port, int number_players) {
-    this->number_players = number_players;
+Server::Server(int port) {
     socketFd = socket(AF_INET, SOCK_STREAM, 0);
     if (socketFd == -1) {
         std::cout << "[ERROR] Failed to create socket!" << std::endl;
@@ -60,7 +59,7 @@ void Server::listenForClients() {
         th_clients_listener[cli_id] = std::thread(connection_listener, (void *)&socket_client[cli_id]);
         */
         cli_id++;
-        if (cli_id == number_players - 1)
+        if (cli_id == MAX_CONNECTIONS)
             break;
     }
 }
@@ -96,8 +95,8 @@ void Server::sendPlayers() {
     char name[20];
     int item[2];
     int champion;
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 0; i < MAX_CONNECTIONS; i++) {
+        for (int j = 0; j < MAX_CONNECTIONS; j++) {
             memset(name, '\0', 20);
             strcpy(name, player[j]->getNickname().c_str());
             champion = player[j]->getChampion()->getId();
@@ -121,8 +120,8 @@ struct instruction Server::waitForInstruction(Player *player) {
 
 void Server::sendStatusBroadcast(int id_next_player) {
     struct status status;
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 0; i < MAX_CONNECTIONS; i++) {
+        for (int j = 0; j < MAX_CONNECTIONS; j++) {
             status.life = this->player[j]->getChampion()->getAttribs()->getLife();
             status.mana = this->player[j]->getChampion()->getAttribs()->getMana();
             status.armor = this->player[j]->getChampion()->getAttribs()->getArmor();

@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
     set<string> effects;
     bool areaEffect = false;
     int turn = 0;
-    Server* server = new Server(8888, 4);
+    Server* server = new Server(8888);
     server->listenForClients();
     server->sendPlayers();
     vector<Player*> players;
@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
     //neste ponto a lista de players esta ok na teoria
     sort(players.begin(), players.end(), compareSpeed);
     //vetor ja ordenando em ordem de quem joga primeiro
-    while (1) {
+    while (true) {
         //representa a partida
         turn++;
         for (int i = 0; i < MAX_CONNECTIONS; i++) {  //representa um turno
