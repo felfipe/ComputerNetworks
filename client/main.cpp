@@ -50,6 +50,9 @@ int main() {
         if (client->waitForServer(myId)) makePlay();
         //print como estao jogs
         printPlayers();
+        char message[128];
+        memset(message, '\0', 128);
+        cout << client->getMessageFromServer(message) << endl;
     }
     return 0;
 }

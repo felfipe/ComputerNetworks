@@ -76,3 +76,8 @@ bool Client::waitForServer(int myId) {
     }
     return flag;
 }
+
+char* Client::getMessageFromServer(char* message) {
+    recv(this->socketFd, message, 128, 0);
+    return message;
+}
