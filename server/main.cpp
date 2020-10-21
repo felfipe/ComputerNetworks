@@ -41,37 +41,44 @@ int main(int argc, char* argv[]) {
             action = server->waitForInstruction(currentPlayer);
             move = currentPlayer->setDamage(action.type, turn);
             memset(message, '\0', 128);
-            if (move.areaEffect == true) {
-                for (int j = 0; j < MAX_CONNECTIONS; j++) {
-                    players[j]->getChampion()->getDamage(move.value, move.effects);
-                    std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " causou dano em área "
-                              << "(-" << move.value << " HP)" << endl;
-                    sprintf(message, "[SERVIDOR] O jogador %s causou um dano em área (-%d HP) de todos jogadores.", currentPlayer->getNickname().c_str(), move.value);
-                    server->sendMessageBroadcast(message);
-                }
-                //impacta em todos os players
-            } else {
-                if (move.type == DAMAGE_SPELL) {
+            if (move.hasMana == true) {
+                if (move.areaEffect == true) {
                     for (int j = 0; j < MAX_CONNECTIONS; j++) {
-                        if (players[j]->getId() == action.target) {
-                            players[j]->getChampion()->getDamage(move.value, move.effects);
-                            std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " atacou o jogador " << players[j]->getNickname() << "(-" << move.value << " HP)" << endl;
-                            sprintf(message, "[SERVIDOR] O jogador %s atacou o jogador %s (-%d HP)", currentPlayer->getNickname().c_str(), players[j]->getNickname().c_str(), move.value);
-                            server->sendMessageBroadcast(message);
-                        }
+                        players[j]->getChampion()->getDamage(move.value, move.effects);
+                        std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " causou dano em área "
+                                  << "(-" << move.value << " HP)" << endl;
+                        sprintf(message, "[SERVIDOR] O jogador %s causou um dano em área (-%d HP) de todos jogadores.", currentPlayer->getNickname().c_str(), move.value);
+                        server->sendMessageBroadcast(message);
                     }
+                    //impacta em todos os players
                 } else {
-                    for (int j = 0; j < MAX_CONNECTIONS; j++) {
-                        if (players[j]->getId() == action.target) {
-                            players[j]->getChampion()->getHealed(move.value);
-                            std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " curou o jogador " << players[j]->getNickname() << "(+" << move.value << " HP)" << endl;
-                            sprintf(message, "[SERVIDOR] O jogador %s curou o jogador %s (+%d HP)", currentPlayer->getNickname().c_str(), players[j]->getNickname().c_str(), move.value);
-                            server->sendMessageBroadcast(message);
+                    if (move.type == DAMAGE_SPELL) {
+                        for (int j = 0; j < MAX_CONNECTIONS; j++) {
+                            if (players[j]->getId() == action.target) {
+                                players[j]->getChampion()->getDamage(move.value, move.effects);
+                                std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " atacou o jogador " << players[j]->getNickname() << "(-" << move.value << " HP)" << endl;
+                                sprintf(message, "[SERVIDOR] O jogador %s atacou o jogador %s (-%d HP)", currentPlayer->getNickname().c_str(), players[j]->getNickname().c_str(), move.value);
+                                server->sendMessageBroadcast(message);
+                            }
+                        }
+                    } else {
+                        for (int j = 0; j < MAX_CONNECTIONS; j++) {
+                            if (players[j]->getId() == action.target) {
+                                players[j]->getChampion()->getHealed(move.value);
+                                std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " curou o jogador " << players[j]->getNickname() << "(+" << move.value << " HP)" << endl;
+                                sprintf(message, "[SERVIDOR] O jogador %s curou o jogador %s (+%d HP)", currentPlayer->getNickname().c_str(), players[j]->getNickname().c_str(), move.value);
+                                server->sendMessageBroadcast(message);
+                            }
                         }
                     }
+                    //impacto apenas no target
                 }
-                //impacto apenas no target
+            } else {
+                std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " nao teve mana suficiente para terminar o feitico e perdeu o turno " << endl;
+                sprintf(message, "[SERVIDOR] O jogador %s nao teve mana suficiente para terminar o feitico e perdeu o turno", currentPlayer->getNickname().c_str());
+                server->sendMessageBroadcast(message);
             }
+
             //wait for instruction
         }
 

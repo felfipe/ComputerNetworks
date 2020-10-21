@@ -92,5 +92,6 @@ struct moviment {
     int value;
     bool areaEffect;
     set<string> effects;
+    bool hasMana;
 };
 #endif
