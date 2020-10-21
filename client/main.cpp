@@ -139,7 +139,6 @@ void printPlayers() {
     cout << "|        Player        | Life | Mana | Armo |  MR  |  AD  |  AP  |\n";
     cout << "|----------------------------------------------------------------|\n";
     for (int i = 0; i < playerList.size(); i++) {
-        cout << playerList[i]->getNickname() << endl;
         printf("| %-20s | %4d | %4d | %4d | %4d | %4d | %4d |\n",
                playerList[i]->getNickname().c_str(),
                playerList[i]->getAttribs()->getLife(),

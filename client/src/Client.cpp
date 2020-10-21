@@ -57,12 +57,6 @@ Client::Client(string address, int port) {
 }
 
 int Client::setUpClient(char* nickname, int championId, int* item) {
-    cout << "---------- log -----------" << endl;
-    cout << "nick  " << nickname << endl;
-    cout << "champ " << championId << endl;
-    cout << "item1 " << item[0] << endl;
-    cout << "item2 " << item[1] << endl;
-
     send(this->socketFd, nickname, MAX_NICKNAME, 0);
     send(this->socketFd, &championId, sizeof(int), 0);
     send(this->socketFd, item, 2 * sizeof(int), 0);
@@ -83,8 +77,6 @@ void Client::receivePlayers() {
         recv(this->socketFd, &champion, sizeof(int), 0);
         recv(this->socketFd, item, MAX_ITEMS * sizeof(int), 0);
         this->playerList.push_back(new Player(idPlayer, nickname, champion, item[0], item[1]));
-        cout << "Player" << i << ": " << nickname << ", Champion: " << champion
-             << ", Item 0: " << item[0] << ", Item 1: " << item[1] << endl;
     }
 }
 
