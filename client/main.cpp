@@ -125,9 +125,10 @@ int selectTarget() {
     printf("|--------------------------|\n");
     printf("|   | TARGET               |\n");
     printf("|--------------------------|\n");
+    int i = 0;
     for (auto pp : playerList) {
         if(pp->getActive())
-            printf("| %d | %-20s |\n", pp->getId(), pp->getNickname().c_str());
+            printf("| %d | %-20s |\n", i++, pp->getNickname().c_str());
         else 
             printf("| x | %-20s |\n", pp->getNickname().c_str());
     }
