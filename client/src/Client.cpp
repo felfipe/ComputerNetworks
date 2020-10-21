@@ -110,7 +110,6 @@ bool Client::waitForServer(int myId) {
         this->playerList[i]->getAttribs()->setAbilityPower(status.habilityPower);
         this->playerList[i]->getAttribs()->setAtackDamage(status.atackDamage);
         flag = (myId == status.your_turn);
-        cout << status.life << status.armor << status.atackDamage << status.habilityPower << status.medicResist << status.your_turn;  // pega os status
     }
     return flag;
 }
