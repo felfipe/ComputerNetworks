@@ -85,7 +85,6 @@ vector<Player*> Client::getPlayerslist() {
 }
 
 void Client::sendInstruction(int instruction, int target) {
-    cout << instruction << " chegou aqui\n";
     send(this->socketFd, &instruction, sizeof(int), 0);
     send(this->socketFd, &target, sizeof(int), 0);
     return;
