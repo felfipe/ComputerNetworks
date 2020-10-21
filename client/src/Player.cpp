@@ -2,6 +2,7 @@
 
 Player::Player(int id, string nickname, int championId, int itemId1, int itemId2) {
     this->id = id;
+    this->active = true;
     this->nickname = nickname;
     this->champion = new Champion(championId);
     this->attribs = new Attribute(0, 0, 0, 0, 0, 0, 0, 0);
@@ -21,4 +22,7 @@ Champion* Player::getChampion() {
 
 Attribute* Player::getAttribs() {
     return this->attribs;
+}
+void killPlayer() {
+    this->active = false;
 }
