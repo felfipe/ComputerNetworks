@@ -13,7 +13,7 @@ class Champion {
     Attribute *attribs;
     int type;
     vector<Item *> item;
-    vector<string> effects;
+    set<string> effects;
     Spell *spell[4];
 
    public:
@@ -22,11 +22,11 @@ class Champion {
     string getName();
     int getType();
     vector<Item *> getItem();
-    vector<string> getEffects();
+    set<string> getEffects();
     Attribute *getAttribs();
-    void getDamage(int value, vector<string> effects);
+    void getDamage(int value, set<string> effects);
     void getHealed(int heal);
-    void setEffects(vector<string> effects);
+    void setEffects(set<string> effects);
     Spell *getSpell(int idx);
     void applyItems(int &type, int &mana, int &value, set<string> &effects, bool &areaEffect, int turn);
     void setItem(int itemId);

@@ -35,20 +35,20 @@ int main(int argc, char* argv[]) {
             move = currentPlayer->setDamage(action.type, turn);
             if (move.areaEffect == true) {
                 for (int i = 0; i < MAX_CONNECTIONS; i++) {
-                    players[i]->getChampion()->getDamage(move.value);
+                    players[i]->getChampion()->getDamage(move.value, move.effects);
                 }
                 //impacta em todos os players
             } else {
-                if (move.type == damage) {
+                if (move.type == DAMAGE_SPELL) {
                     for (int i = 0; i < MAX_CONNECTIONS; i++) {
                         if (players[i]->getId() == action.target) {
-                            players[i]->getChampion()->getDamage(move.value)
+                            players[i]->getChampion()->getDamage(move.value, move.effects);
                         }
                     }
                 } else {
                     for (int i = 0; i < MAX_CONNECTIONS; i++) {
                         if (players[i]->getId() == action.target) {
-                            players[i]->getChampion()->getHealed(move.value)
+                            players[i]->getChampion()->getHealed(move.value);
                         }
                     }
                 }
