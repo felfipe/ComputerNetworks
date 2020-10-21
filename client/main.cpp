@@ -40,11 +40,16 @@ int main() {
         arrItem[i] = items[i];
     }
 
-    client->setUpClient(nickname, championId, arrItem);
+    int myId = client->setUpClient(nickname, championId, arrItem);
     cout << "Waiting to start . . ." << endl;
     client->receivePlayers();
     playerList = client->getPlayerslist();
-
+    while (true) {
+        //print como estao jogs
+        if (client->waitForServer(myId)) {
+            makePlay();
+        }
+    }
     return 0;
 }
 

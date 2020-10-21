@@ -1,5 +1,7 @@
 #include "../headers/Client.hpp"
 
+#include "../headers/Globals.hpp"
+
 /*void *Client::connection_sender(void *clientFd) {
     int client = *(int *)clientFd;
     cout << "[INFO] Connection sender created" << endl;
@@ -54,7 +56,7 @@ Client::Client(string address, int port) {
     return;
 }
 
-void Client::setUpClient(char* nickname, int championId, int* item) {
+int Client::setUpClient(char* nickname, int championId, int* item) {
     cout << "---------- log -----------" << endl;
     cout << "nick  " << nickname << endl;
     cout << "champ " << championId << endl;
@@ -64,6 +66,9 @@ void Client::setUpClient(char* nickname, int championId, int* item) {
     send(this->socketFd, nickname, MAX_NICKNAME, 0);
     send(this->socketFd, &championId, sizeof(int), 0);
     send(this->socketFd, item, 2 * sizeof(int), 0);
+
+    int myId;
+    recv(this->socketFd, &myId, sizeof(int), 0);
 }
 
 void Client::receivePlayers() {
@@ -78,8 +83,8 @@ void Client::receivePlayers() {
         recv(this->socketFd, item, MAX_ITEMS * sizeof(int), 0);
         Player* player = new Player(idPlayer, nickname, champion, item[0], item[1]);
         this->playerList.push_back(player);
-        std::cout << "Player" << i << ": " << nickname << ", Champion: " << champion
-                  << ", Item 0: " << item[0] << ", Item 1: " << item[1] << std::endl;
+        cout << "Player" << i << ": " << nickname << ", Champion: " << champion
+             << ", Item 0: " << item[0] << ", Item 1: " << item[1] << endl;
     }
 }
 
@@ -92,10 +97,20 @@ void Client::sendInstruction(int instruction, int target) {
     send(this->socketFd, &target, sizeof(int), 0);
     return;
 }
-void Client::waitForServer() {
+
+bool Client::waitForServer(int myId) {
     struct status status;
-    for (int i = 0; i < 4; i++) {
+    bool flag = false;
+    for (int i = 0; i < MAX_PLAYERS; i++) {
         recv(this->socketFd, &status, sizeof(status), 0);
-        std::cout << status.life << status.armor << status.atackDamage << status.habilityPower << status.medicResist << status.your_turn;  // pega os status
+        this->playerList[i]->getAttribs()->setLife(status.life);
+        this->playerList[i]->getAttribs()->setMana(status.mana);
+        this->playerList[i]->getAttribs()->setArmor(status.armor);
+        this->playerList[i]->getAttribs()->setMagicResistence(status.medicResist);
+        this->playerList[i]->getAttribs()->setAbilityPower(status.habilityPower);
+        this->playerList[i]->getAttribs()->setAtackDamage(status.atackDamage);
+        flag = (myId == status.your_turn);
+        cout << status.life << status.armor << status.atackDamage << status.habilityPower << status.medicResist << status.your_turn;  // pega os status
     }
+    return flag;
 }

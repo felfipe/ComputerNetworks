@@ -14,9 +14,9 @@ class Client {
     struct sockaddr_in server;
     void receivePlayers();
     vector<Player*> getPlayerslist();
-    void setUpClient(char* nickname, int championId, int* item);
+    int setUpClient(char* nickname, int championId, int* item);
     void sendInstruction(int instruction, int target);
-    void waitForServer();
+    bool waitForServer(int myId);
 
    private:
     /*static void* connection_sender(void* clientFd);

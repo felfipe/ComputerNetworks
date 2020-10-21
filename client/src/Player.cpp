@@ -17,3 +17,7 @@ string Player::getNickname() {
 Champion* Player::getChampion() {
     return this->champion;
 }
+
+Attribute* Player::getAttribs() {
+    return this->attribs;
+}
