@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
                     players[j]->getChampion()->getDamage(move.value, move.effects);
                     std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " causou dano em área "
                               << "(-" << move.value << " HP)" << endl;
-                    sprintf(message, "[SERVIDOR] O jogador %s causou um dano em área (-%d HP) de todos jogadores.", currentPlayer->getNickname().c_str(), &move.value);
+                    sprintf(message, "[SERVIDOR] O jogador %s causou um dano em área (-%d HP) de todos jogadores.", currentPlayer->getNickname().c_str(), move.value);
                     server->sendMessageBroadcast(message);
                 }
                 //impacta em todos os players
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
                         if (players[j]->getId() == action.target) {
                             players[j]->getChampion()->getDamage(move.value, move.effects);
                             std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " atacou o jogador " << players[j]->getNickname() << "(-" << move.value << " HP)" << endl;
-                            sprintf(message, "[SERVIDOR] O jogador %s atacou o jogador %s (-%d HP)", currentPlayer->getNickname().c_str(), players[j]->getNickname().c_str(), &move.value);
+                            sprintf(message, "[SERVIDOR] O jogador %s atacou o jogador %s (-%d HP)", currentPlayer->getNickname().c_str(), players[j]->getNickname().c_str(), move.value);
                             server->sendMessageBroadcast(message);
                         }
                     }
@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
                         if (players[j]->getId() == action.target) {
                             players[j]->getChampion()->getHealed(move.value);
                             std::cout << "[SERVIDOR] O Jogador " << currentPlayer->getNickname() << " curou o jogador " << players[j]->getNickname() << "(+" << move.value << " HP)" << endl;
-                            sprintf(message, "[SERVIDOR] O jogador %s curou o jogador %s (+%d HP)", currentPlayer->getNickname().c_str(), players[j]->getNickname().c_str(), &move.value);
+                            sprintf(message, "[SERVIDOR] O jogador %s curou o jogador %s (+%d HP)", currentPlayer->getNickname().c_str(), players[j]->getNickname().c_str(), move.value);
                             server->sendMessageBroadcast(message);
                         }
                     }
