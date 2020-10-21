@@ -25,11 +25,11 @@ class Server {
     void sendStatusBroadcast(int id_next_player);
     int sendMessageBroadcast(int socket_client, char* message);
     int sendMessage(int socket_client, char* message);
-    Player** getPlayers();
+    vector<Player*> getPlayers();
     struct instruction waitForInstruction(Player* player);
 
    private:
-    Player* player[MAX_CONNECTIONS];
+    vector<Player*> playerlist;
     struct sockaddr_in server;
     std::thread th_clients_listener[10];
     std::thread th_clients_sender[10];

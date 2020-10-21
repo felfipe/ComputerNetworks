@@ -134,13 +134,13 @@ Spell *Champion::getSpell(int idx) {
 
 void Champion::setItem(int itemId) {
     Item *item = new Item(itemId);
-    this->getAttribs()->setAbilityPower(item->getAttribs()->getAbilityPower());
-    this->getAttribs()->setArmor(item->getAttribs()->getArmor());
-    this->getAttribs()->setAttackDamage(item->getAttribs()->getAttackDamage());
-    this->getAttribs()->setLife(item->getAttribs()->getLife());
-    this->getAttribs()->setMagicResist(item->getAttribs()->getMagicResist());
-    this->getAttribs()->setMana(item->getAttribs()->getMana());
-    this->getAttribs()->setSpeed(item->getAttribs()->getSpeed());
+    this->getAttribs()->setAbilityPower(this->getAttribs()->getAbilityPower() + item->getAttribs()->getAbilityPower());
+    this->getAttribs()->setArmor(this->getAttribs()->getArmor() + item->getAttribs()->getArmor());
+    this->getAttribs()->setAttackDamage(this->getAttribs()->getAttackDamage() + item->getAttribs()->getAttackDamage());
+    this->getAttribs()->setLife(this->getAttribs()->getLife() + item->getAttribs()->getLife());
+    this->getAttribs()->setMagicResist(this->getAttribs()->getMagicResist() + item->getAttribs()->getMagicResist());
+    this->getAttribs()->setMana(this->getAttribs()->getMana() + item->getAttribs()->getMana());
+    this->getAttribs()->setSpeed(this->getAttribs()->getSpeed() + item->getAttribs()->getSpeed());
     this->item.push_back(item);
 }
 

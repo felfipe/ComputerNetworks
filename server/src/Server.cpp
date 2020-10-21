@@ -64,8 +64,8 @@ void Server::listenForClients() {
     }
 }
 
-Player **Server::getPlayers() {
-    return this->player;
+vector<Player *> Server::getPlayers() {
+    return this->playerlist;
 }
 
 void Server::setUpPlayer(int socket_client, int cli_id) {
@@ -77,17 +77,18 @@ void Server::setUpPlayer(int socket_client, int cli_id) {
     recv(socket_client, &item[0], sizeof(int), 0);
     recv(socket_client, &item[1], sizeof(int), 0);
     std::string name(name_c);
-    this->player[cli_id] = new Player(name, socket_client, champion, item[0], item[1]);
-    std::cout << "[INFO] Player setted up. Name: " << this->player[cli_id]->getNickname();
-    std::cout << " / Champion: " << this->player[cli_id]->getChampion()->getName();
-    std::cout << " / Item 0: " << this->player[cli_id]->getChampion()->getItem()[0]->getName();
-    std::cout << " / Item 1: " << this->player[cli_id]->getChampion()->getItem()[1]->getName() << std::endl;
+    this->playerlist.push_back(new Player(name, socket_client, champion, item[0], item[1]));
+    
+    std::cout << "[INFO] Player setted up. Name: " << this->playerlist[cli_id]->getNickname();
+    std::cout << " / Champion: " << this->playerlist[cli_id]->getChampion()->getName();
+    std::cout << " / Item 0: " << this->playerlist[cli_id]->getChampion()->getItem()[0]->getName();
+    std::cout << " / Item 1: " << this->playerlist[cli_id]->getChampion()->getItem()[1]->getName() << std::endl;
 
     send(socket_client, &cli_id, sizeof(int), 0);
     return;
 }
 void Server::closeConnection() {
-    for (auto i : player)
+    for (auto i : this->playerlist)
         close(i->getSocket());
     close(this->socketFd);
     return;
@@ -100,15 +101,15 @@ void Server::sendPlayers() {
     for (int i = 0; i < MAX_CONNECTIONS; i++) {
         for (int j = 0; j < MAX_CONNECTIONS; j++) {
             memset(name, '\0', 20);
-            strcpy(name, player[j]->getNickname().c_str());
-            champion = player[j]->getChampion()->getId();
-            item[0] = player[j]->getChampion()->getItem()[0]->getId();
-            item[1] = player[j]->getChampion()->getItem()[1]->getId();
+            strcpy(name, this->playerlist[j]->getNickname().c_str());
+            champion = this->playerlist[j]->getChampion()->getId();
+            item[0] = this->playerlist[j]->getChampion()->getItem()[0]->getId();
+            item[1] = this->playerlist[j]->getChampion()->getItem()[1]->getId();
             std::cout << name << champion << item[0] << item[1];
-            send(player[i]->getSocket(), &i, sizeof(int), 0);
-            send(player[i]->getSocket(), &name, 20, 0);
-            send(player[i]->getSocket(), &champion, sizeof(int), 0);
-            send(player[i]->getSocket(), item, 2 * sizeof(int), 0);
+            send(this->playerlist[i]->getSocket(), &i, sizeof(int), 0);
+            send(this->playerlist[i]->getSocket(), &name, 20, 0);
+            send(this->playerlist[i]->getSocket(), &champion, sizeof(int), 0);
+            send(this->playerlist[i]->getSocket(), item, 2 * sizeof(int), 0);
         }
     }
 }
@@ -124,14 +125,14 @@ void Server::sendStatusBroadcast(int id_next_player) {
     struct status status;
     for (int i = 0; i < MAX_CONNECTIONS; i++) {
         for (int j = 0; j < MAX_CONNECTIONS; j++) {
-            status.life = this->player[j]->getChampion()->getAttribs()->getLife();
-            status.mana = this->player[j]->getChampion()->getAttribs()->getMana();
-            status.armor = this->player[j]->getChampion()->getAttribs()->getArmor();
-            status.atackDamage = this->player[j]->getChampion()->getAttribs()->getAttackDamage();
-            status.habilityPower = this->player[j]->getChampion()->getAttribs()->getAbilityPower();
-            status.medicResist = this->player[j]->getChampion()->getAttribs()->getMagicResist();
+            status.life = this->playerlist[j]->getChampion()->getAttribs()->getLife();
+            status.mana = this->playerlist[j]->getChampion()->getAttribs()->getMana();
+            status.armor = this->playerlist[j]->getChampion()->getAttribs()->getArmor();
+            status.atackDamage = this->playerlist[j]->getChampion()->getAttribs()->getAttackDamage();
+            status.habilityPower = this->playerlist[j]->getChampion()->getAttribs()->getAbilityPower();
+            status.medicResist = this->playerlist[j]->getChampion()->getAttribs()->getMagicResist();
             status.your_turn = id_next_player;
-            send(player[i]->getSocket(), &status, sizeof(struct status), 0);
+            send(playerlist[i]->getSocket(), &status, sizeof(struct status), 0);
         }
     }
 }
