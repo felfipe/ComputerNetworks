@@ -3,6 +3,7 @@
 #include "headers/Player.hpp"
 
 vector<Player*> playerList;
+Client* client;
 
 int selectChampion();
 int selectItem();
@@ -35,7 +36,7 @@ int main() {
         items.push_back(item);
     }
 
-    Client* client = new Client("127.0.0.1", 8888);
+    client = new Client("127.0.0.1", 8888);
     int* arrItem = (int*)malloc(items.size() * sizeof(int));
     for (int i = 0; i < items.size(); i++) {
         arrItem[i] = items[i];
@@ -116,6 +117,7 @@ void makePlay() {
     cin >> action;
     cout << "|--------------------------------------|" << endl;
     int target = selectTarget();
+    client->sendInstruction(action, target);  // SEND INSTRUCTION TO SERVER
 }
 
 int selectTarget() {
