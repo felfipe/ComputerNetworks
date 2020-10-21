@@ -17,6 +17,7 @@ class Client {
     int setUpClient(char* nickname, int championId, int* item);
     void sendInstruction(int instruction, int target);
     bool waitForServer(int myId);
+    char* getMessageFromServer(char* message);
 
    private:
     /*static void* connection_sender(void* clientFd);

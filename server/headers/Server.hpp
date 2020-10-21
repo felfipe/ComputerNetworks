@@ -23,7 +23,7 @@ class Server {
     void setUpPlayer(int socket_client, int cli_id);
     void sendPlayers();
     void sendStatusBroadcast(int id_next_player);
-    int sendMessageBroadcast(int socket_client, char* message);
+    void sendMessageBroadcast(char* message);
     int sendMessage(int socket_client, char* message);
     vector<Player*> getPlayers();
     struct instruction waitForInstruction(Player* player);
