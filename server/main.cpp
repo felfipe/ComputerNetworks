@@ -32,6 +32,7 @@ int main(int argc, char* argv[]) {
     //vetor ja ordenando em ordem de quem joga primeiro
     while (activePlayers > 1) {
         //representa a partida
+
         turn++;
         for (int i = 0; i < MAX_CONNECTIONS; i++) {  //representa um turno
             currentPlayer = players[i];
@@ -73,6 +74,10 @@ int main(int argc, char* argv[]) {
             }
             //wait for instruction
         }
+
+        activePlayers = 0;
+        for (auto pp : players)
+            if (pp->getChampion()->getAttribs()->getLife() > 0) activePlayers++;
     }
     server->closeConnection();
     return 0;
