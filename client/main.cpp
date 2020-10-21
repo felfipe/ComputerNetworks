@@ -47,11 +47,9 @@ int main() {
     client->receivePlayers();
     playerList = client->getPlayerslist();
     while (true) {
+        if (client->waitForServer(myId)) makePlay();
         //print como estao jogs
         printPlayers();
-        if (client->waitForServer(myId)) {
-            makePlay();
-        }
     }
     return 0;
 }

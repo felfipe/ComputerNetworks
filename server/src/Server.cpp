@@ -77,7 +77,7 @@ void Server::setUpPlayer(int socket_client, int cli_id) {
     recv(socket_client, &item[0], sizeof(int), 0);
     recv(socket_client, &item[1], sizeof(int), 0);
     std::string name(name_c);
-    this->playerlist.push_back(new Player(name, socket_client, champion, item[0], item[1]));
+    this->playerlist.push_back(new Player(cli_id, name, socket_client, champion, item[0], item[1]));
 
     std::cout << "[INFO] Player setted up. Name: " << this->playerlist[cli_id]->getNickname();
     std::cout << " / Champion: " << this->playerlist[cli_id]->getChampion()->getName();
@@ -106,7 +106,7 @@ void Server::sendPlayers() {
             champion = this->playerlist[j]->getChampion()->getId();
             item[0] = this->playerlist[j]->getChampion()->getItem()[0]->getId();
             item[1] = this->playerlist[j]->getChampion()->getItem()[1]->getId();
-            std::cout << name << champion << item[0] << item[1];
+            std::cout << name << " " << champion << " " << item[0] << " " << item[1];
             send(this->playerlist[i]->getSocket(), &i, sizeof(int), 0);
             send(this->playerlist[i]->getSocket(), &name, 20, 0);
             send(this->playerlist[i]->getSocket(), &champion, sizeof(int), 0);
@@ -120,6 +120,7 @@ struct instruction Server::waitForInstruction(Player *player) {
     struct instruction instruction;
     recv(player->getSocket(), &instruction.type, sizeof(int), 0);
     recv(player->getSocket(), &instruction.target, sizeof(int), 0);
+    cout << instruction.type << " " << instruction.target << endl;
     return instruction;
 }
 
