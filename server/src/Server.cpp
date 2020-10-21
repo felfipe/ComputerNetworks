@@ -78,7 +78,7 @@ void Server::setUpPlayer(int socket_client, int cli_id) {
     recv(socket_client, &item[1], sizeof(int), 0);
     std::string name(name_c);
     this->playerlist.push_back(new Player(name, socket_client, champion, item[0], item[1]));
-    
+
     std::cout << "[INFO] Player setted up. Name: " << this->playerlist[cli_id]->getNickname();
     std::cout << " / Champion: " << this->playerlist[cli_id]->getChampion()->getName();
     std::cout << " / Item 0: " << this->playerlist[cli_id]->getChampion()->getItem()[0]->getName();
@@ -95,6 +95,7 @@ void Server::closeConnection() {
 }
 
 void Server::sendPlayers() {
+    cout << "[INFO] Sending informations about all players..." << endl;
     char name[20];
     int item[2];
     int champion;
@@ -115,6 +116,7 @@ void Server::sendPlayers() {
 }
 
 struct instruction Server::waitForInstruction(Player *player) {
+    cout << "[INFO] Waiting for instructions from player " << player->getId() << "..." << endl;
     struct instruction instruction;
     recv(player->getSocket(), &instruction.type, sizeof(int), 0);
     recv(player->getSocket(), &instruction.target, sizeof(int), 0);
@@ -123,6 +125,7 @@ struct instruction Server::waitForInstruction(Player *player) {
 
 void Server::sendStatusBroadcast(int id_next_player) {
     struct status status;
+    cout << "[INFO] Sending broadcast Status for all clients." << endl;
     for (int i = 0; i < MAX_CONNECTIONS; i++) {
         for (int j = 0; j < MAX_CONNECTIONS; j++) {
             status.life = this->playerlist[j]->getChampion()->getAttribs()->getLife();
