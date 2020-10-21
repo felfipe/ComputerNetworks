@@ -6,6 +6,7 @@
 
 class Player {
    private:
+    bool active;
     int id;
     string nickname;
     Champion* champion;
