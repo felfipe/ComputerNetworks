@@ -112,7 +112,8 @@ Attribute *Champion::getAttribs() {
 void Champion::getDamage(int value, set<string> effects) {
     int damage = value;
     //metodo para aplicador efeito dos itens de DEFESA e alterar o value
-    this->getAttribs()->setLife(this->getAttribs()->getLife() - damage);
+    int newLife = (this->getAttribs()->getLife() - damage > 0) ? this->getAttribs()->getLife() - damage : 0;
+    this->getAttribs()->setLife(newLife);
     this->setEffects(effects);
 }
 
