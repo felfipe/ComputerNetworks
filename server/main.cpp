@@ -24,14 +24,18 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < MAX_CONNECTIONS; i++) {
         players.push_back(server->getPlayers()[i]);
     }
+
     //neste ponto a lista de players esta ok na teoria
-    // sort(players.begin(), players.end(), compareSpeed);
+    sort(players.begin(), players.end(), compareSpeed);
+
+    int activePlayers = MAX_CONNECTIONS;
     //vetor ja ordenando em ordem de quem joga primeiro
-    while (true) {
+    while (activePlayers > 1) {
         //representa a partida
         turn++;
         for (int i = 0; i < MAX_CONNECTIONS; i++) {  //representa um turno
             currentPlayer = players[i];
+            if (currentPlayer->getChampion()->getAttribs()->getLife() <= 0) continue;
             server->sendStatusBroadcast(currentPlayer->getId());
             action = server->waitForInstruction(currentPlayer);
             move = currentPlayer->setDamage(action.type, turn);
